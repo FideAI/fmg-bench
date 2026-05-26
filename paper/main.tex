@@ -1268,8 +1268,8 @@ dataset card, and release materials are prepared as a versioned release package.
 Run planning can be performed without model or judge API calls:
 
 \begin{verbatim}
-python BENCHMARK/runner/run_fmg_bench.py \
-    --run-config BENCHMARK/runner/config/fmg_bench_v1.yaml \
+python benchmark/run_fmg_bench.py \
+    --run-config benchmark/config/fmg_bench_v1.yaml \
     --plan-run
 \end{verbatim}
 
@@ -1452,8 +1452,8 @@ emergency services or leaving a dangerous situation.
 
 As a preliminary validity check, we conducted LLM-simulated reviewer calibration
 using GPT-5.4 in five distinct theological reviewer personas. The full system prompts
-for all five personas are included in the repository at
-\tagcode{PUBLICATIONS/calibration/SYNTHETIC_CALIBRATION_GPT54.md}.
+for all five personas are summarized in the repository at
+\tagcode{calibration/results/synthetic_calibration_summary.md}.
 
 The five personas represent: (1) an ordained Southern Baptist pastor with conservative
 evangelical convictions on Scripture inerrancy, baptism, and soteriology; (2) a
