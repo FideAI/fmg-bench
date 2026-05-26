@@ -1,0 +1,225 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Bowman and Dahl(2021)}]{bowman2021benchmarking}
+Samuel~R. Bowman and George~E. Dahl. 2021.
+\newblock \href {https://aclanthology.org/2021.naacl-main.385/} {What will it
+  take to fix benchmarking in natural language understanding?}
+\newblock In \emph{Proceedings of the 2021 Conference of the North American
+  Chapter of the Association for Computational Linguistics}.
+
+\bibitem[{Chiu et~al.(2026)Chiu, Lee, Calcott, Handoko, de~Font-Reaulx,
+  Rodriguez, Zhang, Han, Sehwag, Maurya, Knight, Lloyd, Bacus, Mazeika, Liu,
+  Choi, Gordon, and Levine}]{chiu2025morebench}
+Yu~Ying Chiu, Michael~S. Lee, Rachel Calcott, Brandon Handoko, Paul
+  de~Font-Reaulx, Paula Rodriguez, Chen Bo~Calvin Zhang, Ziwen Han,
+  Udari~Madhushani Sehwag, Yash Maurya, Christina~Q. Knight, Harry~R. Lloyd,
+  Florence Bacus, Mantas Mazeika, Bing Liu, Yejin Choi, Mitchell~L. Gordon, and
+  Sydney Levine. 2026.
+\newblock \href {https://arxiv.org/abs/2510.16380} {{MoReBench}: Evaluating
+  procedural and pluralistic moral reasoning in language models, more than
+  outcomes}.
+\newblock In \emph{Proceedings of the International Conference on Learning
+  Representations}.
+
+\bibitem[{Elmahjub et~al.(2026)Elmahjub, Qadir, Mushtaq, Naeem, Ghaznavi, and
+  Iqbal}]{elmahjub2026islamiclegal}
+Ezieddin Elmahjub, Junaid Qadir, Abdullah Mushtaq, Rafay Naeem, Ibrahim
+  Ghaznavi, and Waleed Iqbal. 2026.
+\newblock \href {https://arxiv.org/abs/2602.21226} {{IslamicLegalBench}:
+  Evaluating {LLMs} knowledge and reasoning of islamic law across 1,200 years
+  of islamic pluralist legal traditions}.
+\newblock \emph{arXiv preprint arXiv:2602.21226}.
+
+\bibitem[{Gu et~al.(2024)Gu, Jiang, Shi, Tan, Zhai, Xu, Li, Shen, Ma, Liu,
+  Wang, Zhang, Wang, Gao, Ni, and Guo}]{gu2024survey}
+Jiawei Gu, Xuhui Jiang, Zhichao Shi, Hexiang Tan, Xuehao Zhai, Chengjin Xu, Wei
+  Li, Yinghan Shen, Shengjie Ma, Honghao Liu, Saizhuo Wang, Kun Zhang, Yuanzhuo
+  Wang, Wen Gao, Lionel Ni, and Jian Guo. 2024.
+\newblock \href {https://arxiv.org/abs/2411.15594} {A survey on
+  {LLM}-as-a-judge}.
+\newblock \emph{arXiv preprint arXiv:2411.15594}.
+
+\bibitem[{Hendrycks et~al.(2021)Hendrycks, Burns, Basart, Critch, Li, Song, and
+  Steinhardt}]{hendrycks2021ethics}
+Dan Hendrycks, Collin Burns, Steven Basart, Andrew Critch, Jerry Li, Dawn Song,
+  and Jacob Steinhardt. 2021.
+\newblock \href {https://openreview.net/forum?id=dNy_RKzJacY} {Aligning {AI}
+  with shared human values}.
+\newblock In \emph{Proceedings of the International Conference on Learning
+  Representations}.
+
+\bibitem[{Hendrycks et~al.(2020)Hendrycks, Burns, Basart, Zou, Mazeika, Song,
+  and Steinhardt}]{hendrycks2020mmlu}
+Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn
+  Song, and Jacob Steinhardt. 2020.
+\newblock \href {https://arxiv.org/abs/2009.03300} {Measuring massive multitask
+  language understanding}.
+\newblock \emph{arXiv preprint arXiv:2009.03300}.
+
+\bibitem[{Huang et~al.(2023)Huang, Yu, Ma, Zhong, Feng, Wang, Chen, Peng, Feng,
+  Qin, and Liu}]{huang2023survey}
+Lei Huang, Weijiang Yu, Weitao Ma, Weihong Zhong, Zhangyin Feng, Haotian Wang,
+  Qianglong Chen, Weihua Peng, Xiaocheng Feng, Bing Qin, and Ting Liu. 2023.
+\newblock \href {https://arxiv.org/abs/2311.05232} {A survey on hallucination
+  in large language models: Principles, taxonomy, challenges, and open
+  questions}.
+\newblock \emph{arXiv preprint arXiv:2311.05232}.
+
+\bibitem[{Ji et~al.(2023)Ji, Lee, Frieske, Yu, Su, Xu, Ishii, Bang, Madotto,
+  and Fung}]{ji2023survey}
+Ziwei Ji, Nayeon Lee, Rita Frieske, Tiezheng Yu, Dan Su, Yan Xu, Etsuko Ishii,
+  Ye~Jin Bang, Andrea Madotto, and Pascale Fung. 2023.
+\newblock \href {https://doi.org/10.1145/3571730} {Survey of hallucination in
+  natural language generation}.
+\newblock \emph{ACM Computing Surveys}, 55(12).
+
+\bibitem[{Kim et~al.(2023)Kim, Shin, Cho, Jang, Longpre, Lee, Yun, Shin, Kim,
+  Thorne, and Seo}]{kim2023prometheus}
+Seungone Kim, Jamin Shin, Yejin Cho, Joel Jang, Shayne Longpre, Hwaran Lee,
+  Sangdoo Yun, Seongjin Shin, Sungdong Kim, James Thorne, and Minjoon Seo.
+  2023.
+\newblock \href {https://arxiv.org/abs/2310.08491} {Prometheus: Inducing
+  fine-grained evaluation capability in language models}.
+\newblock \emph{arXiv preprint arXiv:2310.08491}.
+
+\bibitem[{{Liang et al.}(2022)}]{liang2022holistic}
+{Liang et al.} 2022.
+\newblock \href {https://arxiv.org/abs/2211.09110} {Holistic evaluation of
+  language models}.
+\newblock \emph{arXiv preprint arXiv:2211.09110}.
+
+\bibitem[{Lin et~al.(2022)Lin, Hilton, and Evans}]{lin2022truthfulqa}
+Stephanie Lin, Jacob Hilton, and Owain Evans. 2022.
+\newblock \href {https://aclanthology.org/2022.acl-long.229/} {{TruthfulQA}:
+  Measuring how models mimic human falsehoods}.
+\newblock In \emph{Proceedings of the 60th Annual Meeting of the Association
+  for Computational Linguistics}.
+
+\bibitem[{Mallen et~al.(2023)Mallen, Asai, Zhong, Das, Khashabi, and
+  Hajishirzi}]{mallen2023trust}
+Alex Mallen, Akari Asai, Victor Zhong, Rajarshi Das, Daniel Khashabi, and
+  Hannaneh Hajishirzi. 2023.
+\newblock \href {https://aclanthology.org/2023.acl-long.546/} {When not to
+  trust language models: Investigating effectiveness of parametric and
+  non-parametric memories}.
+\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association
+  for Computational Linguistics}.
+
+\bibitem[{Mazeika et~al.(2024)Mazeika, Phan, Yin, Zou, Wang, Mu, Sakhaee, Li,
+  Basart, Li, Forsyth, and Hendrycks}]{mazeika2024harmbench}
+Mantas Mazeika, Long Phan, Xuwang Yin, Andy Zou, Zifan Wang, Norman Mu, Elham
+  Sakhaee, Nathaniel Li, Steven Basart, Bo~Li, David Forsyth, and Dan
+  Hendrycks. 2024.
+\newblock \href {https://arxiv.org/abs/2402.04249} {{HarmBench}: A standardized
+  evaluation framework for automated red teaming and robust refusal}.
+\newblock \emph{arXiv preprint arXiv:2402.04249}.
+
+\bibitem[{McGrath(1990)}]{mcgrath1990genesis}
+Alister~E. McGrath. 1990.
+\newblock \emph{The Genesis of Doctrine: A Study in the Foundation of Doctrinal
+  Criticism}.
+\newblock Blackwell.
+
+\bibitem[{Min et~al.(2023)Min, Krishna, Lyu, Lewis, Yih, Koh, Iyyer,
+  Zettlemoyer, and Hajishirzi}]{min2023factscore}
+Sewon Min, Kalpesh Krishna, Xinxi Lyu, Mike Lewis, Wen-tau Yih, Pang~Wei Koh,
+  Mohit Iyyer, Luke Zettlemoyer, and Hannaneh Hajishirzi. 2023.
+\newblock \href {https://aclanthology.org/2023.emnlp-main.741/} {{FActScore}:
+  Fine-grained atomic evaluation of factual precision in long form text
+  generation}.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing}.
+
+\bibitem[{Mohler(2004)}]{mohler2004triage}
+R.~Albert Mohler. 2004.
+\newblock \href
+  {https://albertmohler.com/2004/07/12/a-call-for-theological-triage-and-christian-maturity}
+  {A call for theological triage and christian maturity}.
+\newblock \emph{AlbertMohler.com}.
+\newblock Available at \url{https://albertmohler.com/2004/07/12/
+  a-call-for-theological-triage-and-christian-maturity}.
+
+\bibitem[{{Ouyang et al.}(2022)}]{ouyang2022instructgpt}
+{Ouyang et al.} 2022.
+\newblock \href
+  {https://proceedings.neurips.cc/paper_files/paper/2022/hash/b1efde53be364a73914f58805a001731-Abstract-Conference.html}
+  {Training language models to follow instructions with human feedback}.
+\newblock \emph{Advances in Neural Information Processing Systems}, 35.
+
+\bibitem[{Ribeiro et~al.(2020)Ribeiro, Wu, Guestrin, and
+  Singh}]{ribeiro2020checklist}
+Marco~Tulio Ribeiro, Tongshuang Wu, Charles Guestrin, and Sameer Singh. 2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.442/} {{CheckList}:
+  Beyond accuracy, behavioral testing of {NLP} models with {CheckList}}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics}.
+
+\bibitem[{Scherrer et~al.(2023)Scherrer, Shi, Feder, and
+  Blei}]{scherrer2024beliefs}
+Nino Scherrer, Claudia Shi, Amir Feder, and David~M. Blei. 2023.
+\newblock \href {https://arxiv.org/abs/2307.14324} {Evaluating the moral
+  beliefs encoded in {LLMs}}.
+\newblock In \emph{Advances in Neural Information Processing Systems 36}.
+
+\bibitem[{{Second Vatican Council}(1964)}]{vaticanII_ur11}
+{Second Vatican Council}. 1964.
+\newblock \href
+  {https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html}
+  {Unitatis redintegratio [decree on ecumenism]}.
+\newblock In Austin Flannery, editor, \emph{Vatican Council II: The Conciliar
+  and Post Conciliar Documents}, chapter~11. Liturgical Press.
+
+\bibitem[{Skytland et~al.(2026)Skytland, Parsons, Llewellyn, Billings, Larson,
+  Anderson, Boisen, and Runge}]{skytland2026faic}
+Nicholas Skytland, Lauren Parsons, Alicia Llewellyn, Steele Billings, Peter
+  Larson, John Anderson, Sean Boisen, and Steve Runge. 2026.
+\newblock \href {https://arxiv.org/abs/2604.03356} {Evaluating artificial
+  intelligence through a christian understanding of human flourishing}.
+\newblock \emph{arXiv preprint arXiv:2604.03356}.
+
+\bibitem[{{Srivastava et al.}(2022)}]{srivastava2022bigbench}
+{Srivastava et al.} 2022.
+\newblock \href {https://arxiv.org/abs/2206.04615} {Beyond the imitation game:
+  Quantifying and extrapolating the capabilities of language models}.
+\newblock \emph{arXiv preprint arXiv:2206.04615}.
+
+\bibitem[{Thomas et~al.(2026)Thomas, Shiromani, Chaudhry, Li, Sharma, Zhu, and
+  Dev}]{thomas2026promoral}
+Rohan~Subramanian Thomas, Shikhar Shiromani, Abdullah Chaudhry, Ruizhe Li, Vasu
+  Sharma, Kevin Zhu, and Sunishchal Dev. 2026.
+\newblock \href {https://arxiv.org/abs/2602.13274} {{ProMoral-Bench}:
+  Evaluating prompting strategies for moral reasoning and safety in {LLMs}}.
+\newblock \emph{arXiv preprint arXiv:2602.13274}.
+
+\bibitem[{van Nuenen and Sachdeva(2026)}]{vanuenen2026fragility}
+Tom van Nuenen and Pratik~S. Sachdeva. 2026.
+\newblock \href {https://arxiv.org/abs/2603.05651} {The fragility of moral
+  judgment in large language models}.
+\newblock \emph{arXiv preprint arXiv:2603.05651}.
+
+\bibitem[{Verga et~al.(2024)Verga, Hofst{\"a}tter, Althammer, Su, Piktus,
+  Arkhangorodsky, Xu, White, and Lewis}]{verga2024replacing}
+Pat Verga, Sebastian Hofst{\"a}tter, Sophia Althammer, Yixuan Su, Aleksandra
+  Piktus, Arkady Arkhangorodsky, Minjie Xu, Naomi White, and Patrick Lewis.
+  2024.
+\newblock \href {https://arxiv.org/abs/2404.18796} {Replacing judges with
+  juries: Evaluating {LLM} generations with a panel of diverse models}.
+\newblock \emph{arXiv preprint arXiv:2404.18796}.
+
+\bibitem[{{Yuntao Bai et al.}(2022)}]{bai2022constitutional}
+{Yuntao Bai et al.} 2022.
+\newblock \href {https://arxiv.org/abs/2212.08073} {Constitutional {AI}:
+  Harmlessness from {AI} feedback}.
+\newblock \emph{arXiv preprint arXiv:2212.08073}.
+
+\bibitem[{Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li,
+  Li, Xing, Zhang, Gonzalez, and Stoica}]{zheng2023judging}
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao
+  Zhuang, Zi~Lin, Zhuohan Li, Dacheng Li, Eric Xing, Hao Zhang, Joseph~E.
+  Gonzalez, and Ion Stoica. 2023.
+\newblock \href {https://arxiv.org/abs/2306.05685} {Judging {LLM}-as-a-judge
+  with {MT-Bench} and chatbot arena}.
+\newblock \emph{arXiv preprint arXiv:2306.05685}.
+
+\end{thebibliography}

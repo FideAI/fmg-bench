@@ -1,0 +1,32 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# LaTeX build byproducts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Local run outputs and raw artifacts
+runs/
+artifacts/
+raw_outputs/
+raw_responses/
+judge_transcripts/
+*.sqlite
+*.db

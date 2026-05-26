@@ -1,0 +1,120 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Chiu et~al.(2026)Chiu, Lee, Calcott, Handoko, de~Font-Reaulx,
+  Rodriguez, Zhang, Han, Sehwag, Maurya, Knight, Lloyd, Bacus, Mazeika, Liu,
+  Choi, Gordon, and Levine}]{chiu2025morebench}
+Yu~Ying Chiu, Michael~S. Lee, Rachel Calcott, Brandon Handoko, Paul
+  de~Font-Reaulx, Paula Rodriguez, Chen Bo~Calvin Zhang, Ziwen Han,
+  Udari~Madhushani Sehwag, Yash Maurya, Christina~Q. Knight, Harry~R. Lloyd,
+  Florence Bacus, Mantas Mazeika, Bing Liu, Yejin Choi, Mitchell~L. Gordon, and
+  Sydney Levine. 2026.
+\newblock \href {https://arxiv.org/abs/2510.16380} {{MoReBench}: Evaluating
+  procedural and pluralistic moral reasoning in language models, more than
+  outcomes}.
+\newblock In \emph{Proceedings of the International Conference on Learning
+  Representations}.
+
+\bibitem[{Elmahjub et~al.(2026)Elmahjub, Qadir, Mushtaq, Naeem, Ghaznavi, and
+  Iqbal}]{elmahjub2026islamiclegal}
+Ezieddin Elmahjub, Junaid Qadir, Abdullah Mushtaq, Rafay Naeem, Ibrahim
+  Ghaznavi, and Waleed Iqbal. 2026.
+\newblock \href {https://arxiv.org/abs/2602.21226} {{IslamicLegalBench}:
+  Evaluating {LLMs} knowledge and reasoning of islamic law across 1,200 years
+  of islamic pluralist legal traditions}.
+\newblock \emph{arXiv preprint arXiv:2602.21226}.
+
+\bibitem[{Gu et~al.(2024)Gu, Jiang, Shi, Tan, Zhai, Xu, Li, Shen, Ma, Liu,
+  Wang, Zhang, Wang, Gao, Ni, and Guo}]{gu2024survey}
+Jiawei Gu, Xuhui Jiang, Zhichao Shi, Hexiang Tan, Xuehao Zhai, Chengjin Xu, Wei
+  Li, Yinghan Shen, Shengjie Ma, Honghao Liu, Saizhuo Wang, Kun Zhang, Yuanzhuo
+  Wang, Wen Gao, Lionel Ni, and Jian Guo. 2024.
+\newblock \href {https://arxiv.org/abs/2411.15594} {A survey on
+  {LLM}-as-a-judge}.
+\newblock \emph{arXiv preprint arXiv:2411.15594}.
+
+\bibitem[{Hendrycks et~al.(2021)Hendrycks, Burns, Basart, Critch, Li, Song, and
+  Steinhardt}]{hendrycks2021ethics}
+Dan Hendrycks, Collin Burns, Steven Basart, Andrew Critch, Jerry Li, Dawn Song,
+  and Jacob Steinhardt. 2021.
+\newblock \href {https://openreview.net/forum?id=dNy_RKzJacY} {Aligning {AI}
+  with shared human values}.
+\newblock In \emph{Proceedings of the International Conference on Learning
+  Representations}.
+
+\bibitem[{Hendrycks et~al.(2020)Hendrycks, Burns, Basart, Zou, Mazeika, Song,
+  and Steinhardt}]{hendrycks2020mmlu}
+Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn
+  Song, and Jacob Steinhardt. 2020.
+\newblock \href {https://arxiv.org/abs/2009.03300} {Measuring massive multitask
+  language understanding}.
+\newblock \emph{arXiv preprint arXiv:2009.03300}.
+
+\bibitem[{Kim et~al.(2023)Kim, Shin, Cho, Jang, Longpre, Lee, Yun, Shin, Kim,
+  Thorne, and Seo}]{kim2023prometheus}
+Seungone Kim, Jamin Shin, Yejin Cho, Joel Jang, Shayne Longpre, Hwaran Lee,
+  Sangdoo Yun, Seongjin Shin, Sungdong Kim, James Thorne, and Minjoon Seo.
+  2023.
+\newblock \href {https://arxiv.org/abs/2310.08491} {Prometheus: Inducing
+  fine-grained evaluation capability in language models}.
+\newblock \emph{arXiv preprint arXiv:2310.08491}.
+
+\bibitem[{{Liang et al.}(2022)}]{liang2022holistic}
+{Liang et al.} 2022.
+\newblock \href {https://arxiv.org/abs/2211.09110} {Holistic evaluation of
+  language models}.
+\newblock \emph{arXiv preprint arXiv:2211.09110}.
+
+\bibitem[{McGrath(1990)}]{mcgrath1990genesis}
+Alister~E. McGrath. 1990.
+\newblock \emph{The Genesis of Doctrine: A Study in the Foundation of Doctrinal
+  Criticism}.
+\newblock Blackwell.
+
+\bibitem[{Mohler(2004)}]{mohler2004triage}
+R.~Albert Mohler. 2004.
+\newblock \href
+  {https://albertmohler.com/2004/07/12/a-call-for-theological-triage-and-christian-maturity}
+  {A call for theological triage and christian maturity}.
+\newblock \emph{AlbertMohler.com}.
+\newblock Available at \url{https://albertmohler.com/2004/07/12/
+  a-call-for-theological-triage-and-christian-maturity}.
+
+\bibitem[{Ribeiro et~al.(2020)Ribeiro, Wu, Guestrin, and
+  Singh}]{ribeiro2020checklist}
+Marco~Tulio Ribeiro, Tongshuang Wu, Charles Guestrin, and Sameer Singh. 2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.442/} {{CheckList}:
+  Beyond accuracy, behavioral testing of {NLP} models with {CheckList}}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics}.
+
+\bibitem[{Skytland et~al.(2026)Skytland, Parsons, Llewellyn, Billings, Larson,
+  Anderson, Boisen, and Runge}]{skytland2026faic}
+Nicholas Skytland, Lauren Parsons, Alicia Llewellyn, Steele Billings, Peter
+  Larson, John Anderson, Sean Boisen, and Steve Runge. 2026.
+\newblock \href {https://arxiv.org/abs/2604.03356} {Evaluating artificial
+  intelligence through a christian understanding of human flourishing}.
+\newblock \emph{arXiv preprint arXiv:2604.03356}.
+
+\bibitem[{{Srivastava et al.}(2022)}]{srivastava2022bigbench}
+{Srivastava et al.} 2022.
+\newblock \href {https://arxiv.org/abs/2206.04615} {Beyond the imitation game:
+  Quantifying and extrapolating the capabilities of language models}.
+\newblock \emph{arXiv preprint arXiv:2206.04615}.
+
+\bibitem[{van Nuenen and Sachdeva(2026)}]{vanuenen2026fragility}
+Tom van Nuenen and Pratik~S. Sachdeva. 2026.
+\newblock \href {https://arxiv.org/abs/2603.05651} {The fragility of moral
+  judgment in large language models}.
+\newblock \emph{arXiv preprint arXiv:2603.05651}.
+
+\bibitem[{Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li,
+  Li, Xing, Zhang, Gonzalez, and Stoica}]{zheng2023judging}
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao
+  Zhuang, Zi~Lin, Zhuohan Li, Dacheng Li, Eric Xing, Hao Zhang, Joseph~E.
+  Gonzalez, and Ion Stoica. 2023.
+\newblock \href {https://arxiv.org/abs/2306.05685} {Judging {LLM}-as-a-judge
+  with {MT-Bench} and chatbot arena}.
+\newblock \emph{arXiv preprint arXiv:2306.05685}.
+
+\end{thebibliography}

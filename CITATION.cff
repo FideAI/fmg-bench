@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: "FMG-Bench: Faith & Moral Guidance Benchmark"
+message: "If you use FMG-Bench, please cite the paper and dataset."
+type: dataset
+authors:
+  - family-names: Chao
+    given-names: Alex
+    affiliation: Fide AI
+year: 2026
+repository-code: "https://github.com/FideAI/fmg-bench"
+url: "https://huggingface.co/datasets/FideAI/fmg-bench"
+abstract: "A benchmark for evaluating large language model behavior in theological triage and pastoral guidance contexts."
+keywords:
+  - benchmark
+  - large language models
+  - theology
+  - pastoral guidance
+  - AI evaluation
+license: "CC-BY-4.0"

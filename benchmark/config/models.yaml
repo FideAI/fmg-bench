@@ -1,0 +1,375 @@
+# AI Models Configuration for Evaluation Suite
+# These models will be benchmarked across all test cases
+# Synced with FAI-C benchmark models
+
+models:
+  # OpenAI GPT-5.4
+  - id: gpt-5.4
+    provider: openrouter
+    model_name: "openai/gpt-5.4"
+    description: "OpenAI GPT-5.4"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # OpenAI GPT-5.4 Mini
+  - id: gpt-5.4-mini
+    provider: openrouter
+    model_name: "openai/gpt-5.4-mini"
+    description: "OpenAI GPT-5.4 Mini"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # OpenAI GPT-5.4 Pro
+  - id: gpt-5.4-pro
+    provider: openrouter
+    model_name: "openai/gpt-5.4-pro"
+    description: "OpenAI GPT-5.4 Pro"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # OpenAI GPT-5.1
+  - id: gpt-5.1
+    provider: openrouter
+    model_name: "openai/gpt-5.1"
+    description: "OpenAI GPT-5.1"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # OpenAI GPT-5.2
+  - id: gpt-5.2
+    provider: openrouter
+    model_name: "openai/gpt-5.2"
+    description: "OpenAI GPT-5.2"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # OpenAI GPT-5.2 Chat
+  - id: gpt-5.2-chat
+    provider: openrouter
+    model_name: "openai/gpt-5.2-chat"
+    description: "OpenAI GPT-5.2 Chat"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # OpenAI GPT-4o Mini
+  - id: gpt-4o-mini
+    provider: openrouter
+    model_name: "openai/gpt-4o-mini"
+    description: "OpenAI GPT-4o Mini"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # OpenAI GPT OSS 20B
+  - id: gpt-oss-20b
+    provider: openrouter
+    model_name: "openai/gpt-oss-20b"
+    description: "OpenAI GPT OSS 20B"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # OpenAI GPT OSS 120B
+  - id: gpt-oss-120b
+    provider: openrouter
+    model_name: "openai/gpt-oss-120b"
+    description: "OpenAI GPT OSS 120B"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Grok 4 Fast
+  - id: grok-4-fast
+    provider: openrouter
+    model_name: "x-ai/grok-4-fast"
+    description: "X.AI Grok 4 Fast"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Grok 4.1 Fast
+  - id: grok-4.1-fast
+    provider: openrouter
+    model_name: "x-ai/grok-4.1-fast"
+    description: "X.AI Grok 4.1 Fast"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Grok 4.20
+  - id: grok-4.20
+    provider: openrouter
+    model_name: "x-ai/grok-4.20"
+    description: "X.AI Grok 4.20"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Claude Opus 4.7
+  - id: claude-opus-4.7
+    provider: openrouter
+    model_name: "anthropic/claude-opus-4.7"
+    description: "Anthropic Claude Opus 4.7"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Claude Sonnet 4.6
+  - id: claude-sonnet-4.6
+    provider: openrouter
+    model_name: "anthropic/claude-sonnet-4.6"
+    description: "Anthropic Claude Sonnet 4.6"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Claude Sonnet 4.5
+  - id: claude-sonnet-4.5
+    provider: openrouter
+    model_name: "anthropic/claude-sonnet-4.5"
+    description: "Anthropic Claude Sonnet 4.5"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Google Gemini 2.5 Flash
+  - id: gemini-2.5-flash
+    provider: openrouter
+    model_name: "google/gemini-2.5-flash"
+    description: "Google Gemini 2.5 Flash"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Google Gemini 3 Flash Preview
+  - id: gemini-3-flash-preview
+    provider: openrouter
+    model_name: "google/gemini-3-flash-preview"
+    description: "Google Gemini 3 Flash Preview"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Google Gemini 3.1 Pro Preview
+  - id: gemini-3.1-pro-preview
+    provider: openrouter
+    model_name: "google/gemini-3.1-pro-preview"
+    description: "Google Gemini 3.1 Pro Preview"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Google Gemini 3.1 Flash Lite Preview
+  - id: gemini-3.1-flash-lite-preview
+    provider: openrouter
+    model_name: "google/gemini-3.1-flash-lite-preview"
+    description: "Google Gemini 3.1 Flash Lite Preview"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Minimax M2
+  - id: minimax-m2
+    provider: openrouter
+    model_name: "minimax/minimax-m2"
+    description: "Minimax M2"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Minimax M2.1
+  - id: minimax-m2.1
+    provider: openrouter
+    model_name: "minimax/minimax-m2.1"
+    description: "Minimax M2.1"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Mistral Large
+  - id: mistral-large-2512
+    provider: openrouter
+    model_name: "mistralai/mistral-large-2512"
+    description: "Mistral AI Mistral Large"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # DeepSeek V3.2
+  - id: deepseek-v3.2
+    provider: openrouter
+    model_name: "deepseek/deepseek-v3.2"
+    description: "DeepSeek V3.2"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # MoonshotAI Kimi K2.6
+  - id: kimi-k2.6
+    provider: openrouter
+    model_name: "moonshotai/kimi-k2.6"
+    description: "MoonshotAI Kimi K2.6"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Qwen 3.6 Plus
+  - id: qwen3.6-plus
+    provider: openrouter
+    model_name: "qwen/qwen3.6-plus"
+    description: "Qwen 3.6 Plus"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # NVIDIA Nemotron Nano 12B V2 VL
+  - id: nemotron-nano-12b-v2-vl
+    provider: openrouter
+    model_name: "nvidia/nemotron-nano-12b-v2-vl:free"
+    description: "NVIDIA Nemotron Nano 12B V2 VL"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Alibaba Tongyi DeepResearch 30B
+  - id: tongyi-deepresearch-30b
+    provider: openrouter
+    model_name: "alibaba/tongyi-deepresearch-30b-a3b:free"
+    description: "Alibaba Tongyi DeepResearch 30B"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Amazon Nova 2 Lite V1
+  - id: nova-2-lite-v1
+    provider: openrouter
+    model_name: "amazon/nova-2-lite-v1"
+    description: "Amazon Nova 2 Lite V1"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # Zhipu AI GLM 4.7
+  - id: glm-4.7
+    provider: openrouter
+    model_name: "z-ai/glm-4.7"
+    description: "Zhipu AI GLM 4.7"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # ByteDance Seed 1.6
+  - id: seed-1.6
+    provider: openrouter
+    model_name: "bytedance-seed/seed-1.6"
+    description: "ByteDance Seed 1.6"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+  # ByteDance Seed 1.6 Flash
+  - id: seed-1.6-flash
+    provider: openrouter
+    model_name: "bytedance-seed/seed-1.6-flash"
+    description: "ByteDance Seed 1.6 Flash"
+    enabled: true
+    config:
+      temperature: 0.7
+      max_tokens: 4096
+      top_p: 1.0
+
+# Evaluation configuration
+evaluation:
+  # Metrics to track
+  metrics:
+    - theological_accuracy
+    - denominational_alignment
+    - cost_efficiency
+    - response_latency
+    - format_compliance
+
+  # Denominations to test
+  denominations:
+    - reformed
+    - baptist
+    - catholic
+    - orthodox
+    - pentecostal
+    - anglican
+
+  # Confidence thresholds
+  thresholds:
+    theological_accuracy: 0.85
+    denominational_alignment: 0.80
+    format_compliance: 0.95
+
+  # Performance targets
+  targets:
+    max_latency_ms: 3000
+    max_cost_per_1k_queries: 5.00
