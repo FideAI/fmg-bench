@@ -1,0 +1,19 @@
+{
+  "benchmark": "FMG-Bench v1",
+  "target_models": 14,
+  "scored_model_condition_items": 8792,
+  "conditions": [
+    "raw_model",
+    "guided_default",
+    "preference_configured",
+    "perspective_compare"
+  ],
+  "headline_results": {
+    "guided_default_minus_raw_model": 3.96,
+    "pastoral_application_gain": 6.62,
+    "escalation_appropriateness_gain": 10.8,
+    "raw_robustness_stability": 92.88,
+    "guided_default_robustness_stability": 98.02
+  },
+  "interpretation": "Bounded guided instructions improved all 14 tested models over raw model behavior. Perspective comparison helped some secondary-doctrine cases but was not a universal improvement."
+}

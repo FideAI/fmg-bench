@@ -1,0 +1,16 @@
+model,provider,raw_model,guided_default,preference_configured,perspective_compare,guided_minus_raw,compare_minus_preference
+Claude Opus 4.7,Anthropic,92.33,94.58,94.66,94.57,2.25,-0.09
+GPT-5.4,OpenAI,91.79,93.90,94.10,94.12,2.10,0.03
+Kimi K2.6,Moonshot AI,90.61,94.14,93.21,93.82,3.53,0.61
+Grok 4.20,xAI,90.37,93.85,92.11,92.94,3.48,0.83
+Qwen 3.6 Plus,Alibaba Qwen,89.93,93.83,94.00,93.18,3.90,-0.82
+DeepSeek V4 Pro,DeepSeek,89.13,92.81,92.13,91.93,3.67,-0.20
+GLM 5.1,Zhipu AI,88.89,92.65,92.32,91.34,3.76,-0.98
+Gemini 3.1 Pro Preview,Google,87.72,91.68,91.78,89.75,3.95,-2.03
+Nemotron Super 120B,NVIDIA,87.18,90.99,91.17,88.31,3.81,-2.86
+MiMo V2.5 Pro,Xiaomi,86.94,90.93,90.87,90.87,3.99,0.00
+MiniMax M2.7,MiniMax,84.61,88.95,88.08,84.60,4.34,-3.48
+Mistral Large 2512,Mistral AI,84.25,89.92,89.64,84.42,5.67,-5.22
+Seed 2.0 Lite,ByteDance Seed,83.13,88.35,87.68,79.16,5.21,-8.52
+Llama 4 Maverick,Meta,73.51,79.30,80.37,77.09,5.79,-3.28
+Mean,,87.17,91.13,90.87,89.01,3.96,-1.86

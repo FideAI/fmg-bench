@@ -1,0 +1,5 @@
+triage_level,description,base_scenarios,raw_model,guided_default,preference_configured,perspective_compare,guided_minus_raw
+primary,Creedal and gospel-boundary faithfulness,25,84.52,88.03,88.07,84.80,3.51
+secondary,Tradition-specific claims and honest disagreement,35,88.71,91.35,91.77,90.91,2.64
+tertiary,Prudential questions and epistemic humility,25,90.07,91.69,91.05,90.96,1.62
+pastoral_application,Safety referral and pastoral boundary judgment,35,85.72,92.34,91.50,88.59,6.62

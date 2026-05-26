@@ -1,4 +1,5 @@
 import json
+import csv
 import subprocess
 import sys
 from pathlib import Path
@@ -102,3 +103,20 @@ def test_cli_plan_run_from_repo_root():
     payload = json.loads(result.stdout)
     assert payload["base_scenario_count"] == 24
     assert payload["model_call_count"] > 0
+
+
+def test_public_result_summaries_match_headline_claims():
+    summary = json.loads((REPO_ROOT / "results" / "production_summary.json").read_text())
+    model_rows = list(csv.DictReader((REPO_ROOT / "results" / "model_scores.csv").open()))
+    triage_rows = {
+        row["triage_level"]: row
+        for row in csv.DictReader((REPO_ROOT / "results" / "triage_scores.csv").open())
+    }
+
+    assert summary["target_models"] == 14
+    assert summary["scored_model_condition_items"] == 8792
+    assert summary["headline_results"]["guided_default_minus_raw_model"] == 3.96
+    assert len([row for row in model_rows if row["model"] != "Mean"]) == 14
+    assert model_rows[-1]["model"] == "Mean"
+    assert float(model_rows[-1]["guided_minus_raw"]) == 3.96
+    assert float(triage_rows["pastoral_application"]["guided_minus_raw"]) == 6.62
