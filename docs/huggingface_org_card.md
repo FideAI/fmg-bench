@@ -3,12 +3,12 @@ title: Fide AI
 sdk: static
 app_file: index.html
 license: cc-by-4.0
-short_description: Open research and benchmarks for faith-aware AI evaluation.
+short_description: Open research and benchmarks for faith-facing AI evaluation.
 ---
 
 # Fide AI
 
-**Public standards for faith-aware AI evaluation.**
+**Public standards for faith-facing AI evaluation.**
 
 Fide AI develops benchmarks, evaluation methods, and responsible-use standards
 for AI systems used around faith, moral guidance, and pastoral-care-adjacent
