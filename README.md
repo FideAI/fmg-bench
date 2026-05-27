@@ -105,6 +105,10 @@ Run the public-release scan:
 python tools/release_scan.py
 ```
 
+For full reproduction guidance, including API-key setup, call-volume planning,
+resuming interrupted runs, and regenerating CSV result tables, see
+[`docs/reproducing_results.md`](docs/reproducing_results.md).
+
 ## Inspect The Dataset
 
 The local benchmark dataset is:
@@ -134,7 +138,7 @@ Load with Python:
 from benchmark.system_benchmark.loader import load_scenarios
 
 scenarios = load_scenarios("dataset/data")
-print(len(scenarios))  # public scenarios plus perturbation variants
+print(len(scenarios))  # base scenarios plus perturbation variants
 ```
 
 ## Inspect The Results
@@ -171,8 +175,14 @@ export OPENROUTER_API_KEY="..."
 python benchmark/run_fmg_bench.py \
   --run-config benchmark/config/fmg_bench_v1.yaml \
   --model openai/gpt-5.4 \
-  --max-scenarios 2
+  --judge openai/gpt-5.4-mini \
+  --max-scenarios 1 \
+  --output runs/smoke
 ```
+
+The smoke command uses one target model, one judge, and one base scenario across
+the four instruction conditions. Paper-comparable runs use the default
+three-model judge panel and the full 157 rendered scenario instances.
 
 The public config points at the open benchmark dataset. Fide AI may keep
 additional internal audit items for future contamination checks, but this

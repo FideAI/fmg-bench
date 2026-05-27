@@ -127,3 +127,53 @@ def test_public_result_summaries_match_headline_claims():
     assert model_rows[-1]["model"] == "Mean"
     assert float(model_rows[-1]["guided_minus_raw"]) == 3.96
     assert float(triage_rows["pastoral_application"]["guided_minus_raw"]) == 6.62
+
+
+def test_summarize_run_outputs_generates_model_table(tmp_path):
+    input_dir = tmp_path / "in"
+    output_dir = tmp_path / "out"
+    input_dir.mkdir()
+    payload = [
+        {
+            "scenario_id": "s1",
+            "mode": mode,
+            "triage_level": "primary",
+            "weighted_score": score,
+            "triage_adjusted_score": score,
+            "scores": {
+                "theological_pastoral_quality": score,
+                "grounding_and_evidence": score,
+                "preference_fidelity": score,
+                "comparative_honesty": score,
+                "escalation_appropriateness": 0,
+            },
+            "metadata": {"request": {"model": "test/model"}},
+        }
+        for mode, score in [
+            ("raw_model", 80),
+            ("guided_default", 90),
+            ("preference_configured", 91),
+            ("perspective_compare", 89),
+        ]
+    ]
+    (input_dir / "test_latest_evaluations.json").write_text(json.dumps(payload))
+
+    subprocess.run(
+        [
+            sys.executable,
+            "tools/summarize_run_outputs.py",
+            "--input-dir",
+            str(input_dir),
+            "--output-dir",
+            str(output_dir),
+        ],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    rows = list(csv.DictReader((output_dir / "model_scores.csv").open()))
+    assert rows[0]["model"] == "test/model"
+    assert rows[0]["guided_minus_raw"] == "10.00"
+    assert rows[-1]["model"] == "Mean"

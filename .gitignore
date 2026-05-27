@@ -28,5 +28,7 @@ artifacts/
 raw_outputs/
 raw_responses/
 judge_transcripts/
+results/system_benchmark/
+results/reproduced/
 *.sqlite
 *.db

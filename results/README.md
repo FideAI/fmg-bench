@@ -16,6 +16,17 @@ summaries only.
 - `dimension_scores.csv`: condition scores by scoring dimension.
 - `../calibration/results/`: public synthetic calibration summaries.
 
+To regenerate comparable CSVs from local runner outputs, use:
+
+```bash
+python tools/summarize_run_outputs.py \
+  --input-dir runs/fmg_bench_v1 \
+  --output-dir runs/fmg_bench_v1_summary
+```
+
+See `docs/reproducing_results.md` for API-key setup, call-volume planning, and
+reproduction caveats.
+
 ## Headline Production Results
 
 | Metric | Result |
