@@ -5,7 +5,11 @@ Push the prepared FMG-Bench v1 open dataset benchmark to Hugging Face.
 Prerequisites:
   1. huggingface-cli login   (or set HF_TOKEN env var)
   2. Create the FideAI org on huggingface.co
-  3. Confirm data/fmg_bench_v1.jsonl and data/manifest.json are present
+  3. Confirm these release files are present:
+     - README.md
+     - data/fmg_bench_v1.jsonl
+     - data/manifest.json
+     - examples/public_sample.jsonl
 
 Usage:
   python scripts/push_to_hf.py
@@ -22,6 +26,12 @@ from huggingface_hub import HfApi, upload_file, upload_folder
 
 REPO_ID = "FideAI/fmg-bench"
 REPO_TYPE = "dataset"
+REQUIRED_FILES = (
+    "README.md",
+    "data/fmg_bench_v1.jsonl",
+    "data/manifest.json",
+    "examples/public_sample.jsonl",
+)
 
 
 def main() -> None:
@@ -36,8 +46,11 @@ def main() -> None:
     examples_dir = dataset_root / "examples"
     readme_path = dataset_root / "README.md"
 
-    if not (data_dir / "fmg_bench_v1.jsonl").exists():
-        print("ERROR: data/fmg_bench_v1.jsonl not found.")
+    missing = [item for item in REQUIRED_FILES if not (dataset_root / item).exists()]
+    if missing:
+        print("ERROR: required Hugging Face release files are missing:")
+        for item in missing:
+            print(f"  - {item}")
         raise SystemExit(1)
 
     api = HfApi()

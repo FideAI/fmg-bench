@@ -46,6 +46,33 @@ Project links:
   documentation examples.
 - `scripts/push_to_hf.py`: helper for uploading the dataset to Hugging Face.
 
+## What To Upload To Hugging Face
+
+Upload the contents of this `dataset/` directory to the Hugging Face dataset
+repository `FideAI/fmg-bench`.
+
+Required files in the Hugging Face repo:
+
+```text
+README.md
+data/fmg_bench_v1.jsonl
+data/manifest.json
+examples/public_sample.jsonl
+```
+
+Do not upload the benchmark runner, paper source, raw model responses, judge
+transcripts, local run outputs, credentials, or private reviewer materials to the
+Hugging Face dataset repo. Those belong in GitHub or should remain private.
+
+Recommended upload command from this directory:
+
+```bash
+python scripts/push_to_hf.py --repo FideAI/fmg-bench --create-repo --private
+```
+
+Drop `--private` when you are ready for the Hugging Face dataset repo to be
+public.
+
 ## Splits
 
 - Benchmark split: 120 base scenarios.
