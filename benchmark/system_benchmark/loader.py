@@ -221,7 +221,10 @@ def load_scenario_set(
 ) -> tuple[list[SystemBenchmarkScenario], ScenarioSetManifest]:
     """Load scenarios and validate a publication scenario-set manifest."""
     root = Path(scenario_set_dir)
-    manifest = load_scenario_set_manifest(root / "manifest.yaml")
+    manifest_path = root / "manifest.json"
+    if not manifest_path.exists():
+        manifest_path = root / "manifest.yaml"
+    manifest = load_scenario_set_manifest(manifest_path)
     scenarios = load_scenarios(root)
     validate_scenario_set_manifest(
         manifest,

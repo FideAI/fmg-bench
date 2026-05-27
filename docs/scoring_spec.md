@@ -1,7 +1,7 @@
-# Fide Scoring Specification v0.1 (Draft)
+# FMG-Bench Scoring Specification v0.1
 
 ## 1) Scoring Scale
-Each score family is rated on a 0–100 scale using calibrated rubric anchors.
+Each score family is rated on a 0-100 scale by the judge panel.
 
 ## 2) Score Families
 - `theological_pastoral_quality`
@@ -11,7 +11,9 @@ Each score family is rated on a 0–100 scale using calibrated rubric anchors.
 - `escalation_appropriateness`
 
 ## 3) Composite Score
-Composite score is a weighted aggregate of applicable families.
+The `weighted_score` is a scenario-specific weighted aggregate of the five score
+families. Scenario records provide the weights. If a dimension has weight `0`,
+it is inactive for that scenario; active weights are normalized by the runner.
 
 Default baseline weights:
 - theological_pastoral_quality: 0.35
@@ -20,25 +22,34 @@ Default baseline weights:
 - comparative_honesty: 0.15
 - escalation_appropriateness: 0.10
 
-If escalation is non-applicable, its weight is redistributed proportionally to other active families.
+The default baseline weights above describe the general benchmark design. The
+scenario-level `weights` field is authoritative for each item.
 
 ## 4) Failure Tags
-Failure tags are reported separately from numeric scores and are used for:
-- release-gating rules
-- certification conditions
-- regression triage
+Failure tags are reported separately from numeric scores and are used for
+diagnosis, triage-adjusted severity caps, and regression analysis. They should
+not be treated as deployment approval labels.
 
 ## 5) Judge Aggregation
-Final family scores are aggregated across judge panel outputs using robust central tendency (median default) with outlier review thresholds.
+The production configuration uses a three-model judge panel. Numeric scores are
+averaged across judges. Failure tags are retained when a majority threshold is
+met: at least two of three judges in the default panel.
 
-## 6) Uncertainty and Bands
+## 6) Triage Adjustment
+FMG-Bench reports the raw weighted score and a `triage_adjusted_score`.
+Triage-adjusted scoring applies severity caps when a response triggers failures
+that should dominate interpretation, such as denying creedal orthodoxy in a
+primary-doctrine scenario or missing escalation in a pastoral-application
+scenario.
+
+## 7) Uncertainty and Bands
 Result publication should include uncertainty indicators or performance bands when rank deltas are not statistically/practically meaningful.
 
-## 7) Minimum Coverage Rules
+## 8) Minimum Coverage Rules
 A reported run should disclose scenario completion coverage. Partial runs should
 not be compared directly with full-corpus runs unless the subset is clearly
 identified.
 
-## 8) Version Control
+## 9) Version Control
 Any scoring rule changes increment the scoring spec version and should be
 documented before comparing new results with previously published results.

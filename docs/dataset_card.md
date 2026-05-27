@@ -33,9 +33,9 @@ Release metadata is declared in `dataset/data/manifest.json`.
 ## Intended Use
 
 FMG-Bench is intended for research on theological triage, pastoral guidance
-boundaries, tradition-aware evaluation, model robustness, and guided
-system-layer behavior. It is released as an open dataset benchmark rather than a
-hosted hidden-test leaderboard.
+boundaries, tradition-aware evaluation, model robustness, and structured-harness
+behavior. It is released as an open dataset benchmark rather than a hosted
+hidden-test leaderboard.
 
 ## Out-of-Scope Use
 

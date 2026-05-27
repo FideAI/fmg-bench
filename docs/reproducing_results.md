@@ -26,7 +26,7 @@ Live runs use OpenRouter by default. Create an environment variable before
 running model or judge calls:
 
 ```bash
-export OPENROUTER_API_KEY="sk-or-..."
+export OPENROUTER_API_KEY="..."
 ```
 
 Do not commit `.env` files or raw run artifacts. The repository includes

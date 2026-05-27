@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -23,15 +24,15 @@ PUBLICATION_MODE_DEFINITIONS: dict[BenchmarkMode, dict[str, str]] = {
         "rationale": "Baseline condition for measuring native model behavior.",
     },
     BenchmarkMode.GUIDED_DEFAULT: {
-        "definition": "A bounded guided system layer emphasizing triage, grounding, user agency, and escalation.",
-        "rationale": "Generalizes product-mediated default guidance without product branding.",
+        "definition": "Structured harness emphasizing triage, grounding, user agency, and escalation.",
+        "rationale": "Tests whether a structured harness improves behavior without product branding.",
     },
     BenchmarkMode.PREFERENCE_CONFIGURED: {
-        "definition": "Guided system behavior with explicit user or tradition preferences supplied as context.",
+        "definition": "Structured-harness behavior with explicit user or tradition preferences supplied as context.",
         "rationale": "Tests whether systems can honor declared preferences while preserving safety and epistemic limits.",
     },
     BenchmarkMode.PERSPECTIVE_COMPARE: {
-        "definition": "Preference-aware behavior that also surfaces meaningful faithful disagreement.",
+        "definition": "Preference-aware structured-harness behavior that also surfaces meaningful faithful disagreement.",
         "rationale": "Tests whether systems can compare perspectives without flattening disagreement or overstating consensus.",
     },
 }
@@ -42,9 +43,11 @@ class ScenarioSetManifest:
     """Validated publication scenario-set manifest."""
 
     version: str
-    scenario_ids: list[str]
-    public_sample_ids: list[str]
-    held_out_ids: list[str]
+    total_scenarios: int
+    open_benchmark_count: int
+    example_sample_count: int
+    perturbation_variant_count: int
+    rendered_instance_count: int
     calibration_candidate_ids: list[str]
     triage_coverage: dict[str, int]
     doctrine_locus_coverage: dict[str, int]
@@ -55,10 +58,11 @@ class ScenarioSetManifest:
     def from_dict(cls, payload: dict[str, Any]) -> "ScenarioSetManifest":
         required = {
             "version",
-            "scenario_ids",
-            "public_sample_ids",
-            "held_out_ids",
-            "calibration_candidate_ids",
+            "total_scenarios",
+            "open_benchmark_count",
+            "example_sample_count",
+            "perturbation_variant_count",
+            "rendered_instance_count",
             "triage_coverage",
             "doctrine_locus_coverage",
             "tradition_coverage",
@@ -69,10 +73,14 @@ class ScenarioSetManifest:
             raise ValueError(f"Scenario-set manifest missing keys: {sorted(missing)}")
         return cls(
             version=str(payload["version"]),
-            scenario_ids=[str(item) for item in payload["scenario_ids"]],
-            public_sample_ids=[str(item) for item in payload["public_sample_ids"]],
-            held_out_ids=[str(item) for item in payload["held_out_ids"]],
-            calibration_candidate_ids=[str(item) for item in payload["calibration_candidate_ids"]],
+            total_scenarios=int(payload["total_scenarios"]),
+            open_benchmark_count=int(payload["open_benchmark_count"]),
+            example_sample_count=int(payload["example_sample_count"]),
+            perturbation_variant_count=int(payload["perturbation_variant_count"]),
+            rendered_instance_count=int(payload["rendered_instance_count"]),
+            calibration_candidate_ids=[
+                str(item) for item in payload.get("calibration_candidate_ids", [])
+            ],
             triage_coverage={str(k): int(v) for k, v in payload["triage_coverage"].items()},
             doctrine_locus_coverage={
                 str(k): int(v) for k, v in payload["doctrine_locus_coverage"].items()
@@ -107,10 +115,13 @@ def terminology_mapping_rows() -> list[dict[str, str]]:
 
 
 def load_scenario_set_manifest(path: str | Path) -> ScenarioSetManifest:
-    """Load and validate a scenario-set manifest YAML file."""
+    """Load and validate a scenario-set manifest JSON or YAML file."""
     manifest_path = Path(path)
     with manifest_path.open() as handle:
-        payload = yaml.safe_load(handle) or {}
+        if manifest_path.suffix == ".json":
+            payload = json.load(handle)
+        else:
+            payload = yaml.safe_load(handle) or {}
     return ScenarioSetManifest.from_dict(payload)
 
 
@@ -123,30 +134,37 @@ def validate_scenario_set_manifest(
     """Validate manifest ids and coverage against loaded base scenarios."""
     base_scenarios = [item for item in scenarios if item.base_scenario_id is None]
     base_ids = {item.id for item in base_scenarios}
-    manifest_ids = set(manifest.scenario_ids)
+    perturbation_count = len(scenarios) - len(base_scenarios)
 
     if expected_base_count is not None and len(base_scenarios) != expected_base_count:
         raise ValueError(
             f"Expected {expected_base_count} base scenarios, found {len(base_scenarios)}"
         )
-    if base_ids != manifest_ids:
-        missing = sorted(base_ids - manifest_ids)
-        extra = sorted(manifest_ids - base_ids)
-        raise ValueError(f"Manifest scenario ids mismatch; missing={missing}, extra={extra}")
+    if len(base_scenarios) != manifest.total_scenarios:
+        raise ValueError(
+            f"Manifest total_scenarios mismatch; expected {len(base_scenarios)}, got {manifest.total_scenarios}"
+        )
+    if len(base_scenarios) != manifest.open_benchmark_count:
+        raise ValueError(
+            "Manifest open_benchmark_count must match loaded base scenarios; "
+            f"expected {len(base_scenarios)}, got {manifest.open_benchmark_count}"
+        )
+    if perturbation_count != manifest.perturbation_variant_count:
+        raise ValueError(
+            "Manifest perturbation_variant_count mismatch; "
+            f"expected {perturbation_count}, got {manifest.perturbation_variant_count}"
+        )
+    if len(scenarios) != manifest.rendered_instance_count:
+        raise ValueError(
+            "Manifest rendered_instance_count mismatch; "
+            f"expected {len(scenarios)}, got {manifest.rendered_instance_count}"
+        )
 
-    for split_name, ids in {
-        "public_sample_ids": manifest.public_sample_ids,
-        "held_out_ids": manifest.held_out_ids,
-        "calibration_candidate_ids": manifest.calibration_candidate_ids,
-    }.items():
-        unknown = sorted(set(ids) - base_ids)
-        if unknown:
-            raise ValueError(f"{split_name} contains unknown scenario ids: {unknown}")
-
-    public = set(manifest.public_sample_ids)
-    held_out = set(manifest.held_out_ids)
-    if public & held_out:
-        raise ValueError("public_sample_ids and held_out_ids must be disjoint")
+    unknown_calibration = sorted(set(manifest.calibration_candidate_ids) - base_ids)
+    if unknown_calibration:
+        raise ValueError(
+            f"calibration_candidate_ids contains unknown scenario ids: {unknown_calibration}"
+        )
 
     triage_counts: dict[str, int] = {}
     tradition_counts: dict[str, int] = {}

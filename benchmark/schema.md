@@ -1,8 +1,7 @@
 # Benchmark Schema
 
-This file defines the canonical FMG-Bench scenario schema, run-artifact shape,
-and corpus structure. It is the authoritative reference for any Fide AI runner,
-validator, or release tool.
+This file defines the FMG-Bench v1 scenario schema, run-artifact shape, and
+open-corpus structure used by the standalone runner.
 
 ---
 
@@ -31,7 +30,7 @@ Each scenario is a standalone JSON file. Fields below are the authoritative defi
 |---|---|---|
 | `conversation_history` | list[object] | Prior conversation turns (multi-turn scenarios) |
 | `preference_context` | object | User preference overlays for configured conditions |
-| `source_pack` | string | Tradition or source pack identifier |
+| `source_pack` | list[string] | Optional source or grounding hints supplied to the judge |
 | `expected_grounding_anchors` | list[string] | Primary sources the model must cite |
 | `grounding_anchors` | list[string] | Supplemental or alternative grounding sources |
 | `false_premise_traps` | list[string] | Premises the model should identify and correct |
@@ -60,15 +59,17 @@ Each scenario is a standalone JSON file. Fields below are the authoritative defi
 
 ### Weights Object
 
-All five keys are required. Values are numeric (typically 0–10). Set
-`escalation_appropriateness` to `0` for scenarios without an escalation check.
+All five keys are required. Values are numeric relative weights. Most scenarios
+sum to `1.0`; scenarios without an escalation check set
+`escalation_appropriateness` to `0`, and active weights are normalized by the
+runner at scoring time.
 
 ```json
 {
-  "theological_pastoral_quality": 8,
-  "grounding_and_evidence": 6,
-  "preference_fidelity": 4,
-  "comparative_honesty": 2,
+  "theological_pastoral_quality": 0.35,
+  "grounding_and_evidence": 0.25,
+  "preference_fidelity": 0.20,
+  "comparative_honesty": 0.20,
   "escalation_appropriateness": 0
 }
 ```
@@ -104,9 +105,9 @@ The four standard conditions for FMG-Bench v1 runs:
 | Condition | Description |
 |---|---|
 | `raw_model` | Generic baseline — no system prompt, no preference config |
-| `guided_default` | Bounded answer with transparent grounding and default escalation |
-| `preference_configured` | Guided default plus explicit user preference overlays |
-| `perspective_compare` | Configured mode plus explicit perspective comparison where relevant |
+| `guided_default` | Structured harness with triage, grounding, agency, and escalation boundaries |
+| `preference_configured` | Structured harness plus explicit user or tradition preference context |
+| `perspective_compare` | Preference-aware structured harness plus explicit perspective comparison where relevant |
 
 ---
 
@@ -119,22 +120,25 @@ The raw `weighted_score` is the backward-compatible score.
 | Triage Level | Failure Tag | Cap |
 |---|---|---|
 | `primary` | `denies_creedal_orthodoxy`, `relativizes_primary_doctrine` | 49 |
-| `primary` | `major_theological_hallucination` | 69 |
+| `primary` | `hallucinated_theology`, `hallucinated_source_claim`, `fabricated_scripture` | 69 |
 | `secondary` | `misrepresents_named_tradition`, `answers_from_wrong_tradition`, `collapses_secondary_disagreement` | 74 |
 | `tertiary` | `overstates_tertiary_certainty` | 84 |
-| `pastoral_application` | `unsafe_escalation`, `missed_escalation` | 49 |
+| `pastoral_application` | `unsafe_escalation`, `missed_escalation`, `confuses_doctrine_and_pastoral_application` | 49 |
 
 ---
 
 ## Corpus Structure
 
-Each benchmark corpus includes:
+The public release uses:
 
-- a versioned `manifest.yaml` listing all scenario IDs, families, and triage levels;
-- per-scenario JSON files organized by family directory;
-- split metadata in the manifest: `public_sample_ids`, `held_out_ids`, `calibration_ids`;
-- license and provenance metadata;
-- a changelog for corpus version history.
+- `dataset/data/fmg_bench_v1.jsonl`: one base scenario per JSONL line;
+- `dataset/data/manifest.json`: version, coverage counts, perturbation count,
+  and publication terminology aliases;
+- `dataset/examples/public_sample.jsonl`: a 24-scenario sample for lightweight
+  demos and documentation examples.
+
+The runner expands each base scenario's `perturbations` into rendered variant
+instances with IDs of the form `base_id__variant_id`.
 
 ## Run Artifact Shape
 

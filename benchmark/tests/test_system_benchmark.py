@@ -8,7 +8,7 @@ RUNNER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = RUNNER_ROOT.parent
 sys.path.insert(0, str(RUNNER_ROOT))
 
-from system_benchmark.loader import load_scenarios
+from system_benchmark.loader import load_scenario_set, load_scenarios
 from system_benchmark.models import BenchmarkMode, EvaluationConfig, TriageLevel
 from system_benchmark.renderers import render_prompt
 from system_benchmark.runner import SystemBenchmarkRunner
@@ -47,6 +47,14 @@ def test_manifest_matches_open_benchmark_count():
         "preference_configured": "preference_configured",
         "perspective_compare": "perspective_compare",
     }
+
+
+def test_scenario_set_manifest_validates_open_corpus():
+    scenarios, manifest = load_scenario_set(public_data_dir())
+
+    assert manifest.open_benchmark_count == 120
+    assert manifest.perturbation_variant_count == 37
+    assert manifest.rendered_instance_count == len(scenarios) == 157
 
 
 def test_benchmark_modes_use_public_condition_names():

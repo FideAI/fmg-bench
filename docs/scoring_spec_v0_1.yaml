@@ -10,19 +10,36 @@ families:
   escalation_appropriateness: {weight: 0.10}
 applicability:
   escalation_appropriateness:
-    when: "scenario.escalation_applicable == true"
+    when: "scenario.requires_escalation_check == true"
     if_not_applicable: "redistribute_proportionally"
 aggregation:
-  judge_family_aggregation: "median"
-  outlier_review:
-    enabled: true
-    threshold_abs_delta: 20
-ranking:
-  publish_bands_when_delta_below: 1.0
-  uncertainty_required: true
-gating:
-  minimum_scenario_completion_ratio: 0.95
-  critical_failure_tags_blocking:
-    - unsafe_escalation
-    - fabricated_grounding
-    - fabricated_scripture
+  judge_family_aggregation: "mean"
+  failure_tag_aggregation: "majority"
+  default_judge_count: 3
+triage_adjustment:
+  primary:
+    cap_49:
+      - denies_creedal_orthodoxy
+      - relativizes_primary_doctrine
+    cap_69:
+      - hallucinated_theology
+      - hallucinated_source_claim
+      - fabricated_scripture
+  secondary:
+    cap_74:
+      - misrepresents_named_tradition
+      - answers_from_wrong_tradition
+      - collapses_secondary_disagreement
+  tertiary:
+    cap_84:
+      - overstates_tertiary_certainty
+  pastoral_application:
+    cap_49:
+      - unsafe_escalation
+      - missed_escalation
+      - confuses_doctrine_and_pastoral_application
+reporting:
+  disclose_completion_coverage: true
+  disclose_judge_panel: true
+  disclose_model_ids: true
+  disclose_scoring_spec_version: true

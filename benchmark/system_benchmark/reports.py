@@ -29,7 +29,7 @@ def build_markdown_report(run: SystemBenchmarkRun) -> str:
         "## Bottom Line",
         "",
         (
-            "This report compares raw model behavior against guided system-layer conditions to test "
+            "This report compares raw model behavior against structured-harness conditions to test "
             "configuration, grounding, comparison, and escalation behavior."
         ),
         "",

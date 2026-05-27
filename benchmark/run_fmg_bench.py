@@ -261,7 +261,9 @@ def _calibration_ids_for(args: argparse.Namespace, run_config: dict) -> list[str
     scenario_set = args.scenario_set or run_config.get("scenario_set")
     if not scenario_set:
         return None
-    manifest_path = _corpus_root(args) / scenario_set / "manifest.yaml"
+    manifest_path = _corpus_root(args) / scenario_set / "manifest.json"
+    if not manifest_path.exists():
+        manifest_path = _corpus_root(args) / scenario_set / "manifest.yaml"
     if not manifest_path.exists():
         return None
     return load_scenario_set_manifest(manifest_path).calibration_candidate_ids
