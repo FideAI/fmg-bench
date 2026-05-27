@@ -49,14 +49,14 @@ and some are pastoral situations where safety and human referral matter more tha
 theological completeness. Existing benchmarks do not evaluate this structure. We
 introduce \fmgb{}, the Faith \& Moral Guidance Benchmark, a 120-scenario benchmark
 for theological triage and pastoral guidance in English-language Christian
-contexts. \fmgb{} v1 compares raw model behavior with structured-harness
-conditions across 14 advanced models for 8,792 scored items. Placing models
+contexts. \fmgb{} v1 evaluates 14 advanced models across 8,792 scored responses,
+comparing raw model behavior with three guided instruction settings. Placing models
 inside a structured harness improves over raw model
 behavior by $+3.96$ points on average, with all 14 models improving. The largest
 domain gain is pastoral application ($+6.62$), and the most safety-critical gain is
 escalation appropriateness ($+10.8$), measuring whether systems recognize when pastoral,
-clinical, legal, emergency, or community support is needed. Structured-harness
-conditions also improve robustness ($92.88 \to 98.02$
+clinical, legal, emergency, or community support is needed. The guided settings
+also improve robustness ($92.88 \to 98.02$
 stability). Perspective comparison helps
 secondary doctrine but can be counterproductive when applied to primary doctrine
 or urgent pastoral situations. The benchmark is a measurement tool, not an
@@ -98,7 +98,7 @@ instruction-layer scaffolding around a model: triage rules, grounding
 expectations, preference handling, comparative-theology norms, and escalation
 boundaries. We compare four conditions: raw model behavior, guided default
 behavior, preference-configured behavior, and perspective-comparison behavior.
-Across 14 advanced models, the structured-harness conditions improve every model,
+Across 14 advanced models, the structured harness improves every model,
 with the largest gains in pastoral application.
 At the same time, comparison framing is not universally helpful: it improves some
 secondary-doctrine answers but degrades primary-doctrine and pastoral settings
@@ -209,6 +209,9 @@ boundaries. \texttt{preference\_configured} adds an explicit user or tradition
 preference as context. \texttt{perspective\_compare} adds a request to surface
 meaningful faithful disagreement where it exists. These conditions are
 experimental variables, not product-specific claims.
+Each condition produces a concrete answer that is scored directly; comparisons
+such as \texttt{guided\_default} minus \texttt{raw\_model} are computed from the
+observed scores.
 
 \begin{table}[htbp]
 \centering
