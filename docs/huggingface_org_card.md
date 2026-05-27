@@ -8,20 +8,20 @@ short_description: Open research and benchmarks for faith-aware AI evaluation.
 
 # Fide AI
 
-**Open research and benchmarks for faith-aware AI evaluation.**
+**Public standards for faith-aware AI evaluation.**
 
-Fide AI develops public benchmarks, evaluation methods, and responsible-use
-standards for AI systems used around faith, moral guidance, and pastoral-care
-adjacent questions.
+Fide AI develops benchmarks, evaluation methods, and responsible-use standards
+for AI systems used around faith, moral guidance, and pastoral-care-adjacent
+questions.
 
-## Research Focus
+## Focus
 
 - Theological triage and tradition-aware evaluation
 - Faith and moral guidance benchmarks
 - Structured harness design for safer model behavior
 - Responsible-use standards for spiritually sensitive AI contexts
 
-## Featured Work
+## Featured
 
 | Project | Description |
 |---|---|
