@@ -29,9 +29,12 @@ configs:
 # FMG-Bench v1 Dataset
 
 FMG-Bench is a 120-scenario benchmark for evaluating large language model
-behavior in theological triage and pastoral guidance contexts. This dataset
-release contains the open v1 benchmark corpus: 120 base scenarios with 37
-perturbation variants.
+behavior in theological triage and pastoral-guidance-adjacent contexts.
+
+This release contains the open v1 benchmark corpus: 120 base scenarios with 37
+perturbation variants. It is intended for researchers and engineers studying how
+models handle faith-facing questions involving doctrine, tradition, moral
+guidance, user preference, grounding, and escalation boundaries.
 
 Project links:
 
@@ -44,34 +47,6 @@ Project links:
 - `data/manifest.json`: release metadata and aggregate coverage counts.
 - `examples/public_sample.jsonl`: 24-scenario sample for quick inspection and
   documentation examples.
-- `scripts/push_to_hf.py`: helper for uploading the dataset to Hugging Face.
-
-## What To Upload To Hugging Face
-
-Upload the contents of this `dataset/` directory to the Hugging Face dataset
-repository `FideAI/fmg-bench`.
-
-Required files in the Hugging Face repo:
-
-```text
-README.md
-data/fmg_bench_v1.jsonl
-data/manifest.json
-examples/public_sample.jsonl
-```
-
-Do not upload the benchmark runner, paper source, raw model responses, judge
-transcripts, local run outputs, credentials, or private reviewer materials to the
-Hugging Face dataset repo. Those belong in GitHub or should remain private.
-
-Recommended upload command from this directory:
-
-```bash
-python scripts/push_to_hf.py --repo FideAI/fmg-bench --create-repo --private
-```
-
-Drop `--private` when you are ready for the Hugging Face dataset repo to be
-public.
 
 ## Splits
 
@@ -107,6 +82,14 @@ Each scenario includes:
 - `expected_behaviors`
 - `disallowed_failure_modes`
 - optional perturbation variants
+
+## Responsible Use
+
+FMG-Bench is an evaluation dataset. It does not certify pastoral authority,
+clinical safety, legal adequacy, or deployment readiness. Results should be
+interpreted as behavioral evidence under the benchmark's scoring framework, not
+as endorsement of a model for real-world pastoral, counseling, legal, or
+crisis-support use.
 
 ## License
 
