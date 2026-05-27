@@ -250,4 +250,4 @@ See [`CITATION.cff`](CITATION.cff) and [`paper/references.bib`](paper/references
 - Dataset, paper text, methodology docs, and result summaries: CC BY 4.0.
 - Code: Apache License 2.0.
 
-See [`LICENSE`](LICENSE).
+See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
