@@ -56,14 +56,14 @@ and some are pastoral situations where safety and human referral matter more tha
 theological completeness. Existing benchmarks do not evaluate this structure. We
 introduce \fmgb{}, the Faith \& Moral Guidance Benchmark, a 120-scenario benchmark
 for evaluating large language model behavior in English-language Christian
-theological triage and pastoral guidance contexts. \fmgb{} v1 compares raw model
-behavior with structured-harness conditions across 14 advanced models for 8,792
-scored items.
+theological triage and pastoral guidance contexts. \fmgb{} v1 evaluates 14
+advanced models across 8,792 scored responses, comparing raw model behavior with
+three guided instruction settings.
 In our production run, placing models inside a structured harness improves over
 raw model behavior by $+3.96$ points on
 average, with every model improving. The most safety-critical finding is a $+10.8$
 point gain in escalation appropriateness --- whether AI systems recognize when
-pastoral, clinical, legal, or emergency support is needed. Structured-harness conditions also
+pastoral, clinical, legal, or emergency support is needed. The guided settings also
 improve robustness, meaning consistency when questions are reworded or pressured
 ($92.88 \to 98.02$~stability). Asking a model to compare perspectives helps in
 secondary-doctrine questions but can be counterproductive when applied to primary
@@ -116,13 +116,13 @@ Catholic views of baptism is inappropriate for a safety-sensitive pastoral quest
 evaluates whether AI systems can make this distinction --- and whether structured
 instruction-layer scaffolding changes their ability to do so.
 
-\paragraph{The structured-harness contribution.}
-Most LLM benchmarks evaluate raw model behavior in isolation. \fmgb{} is designed
-differently: it evaluates how model behavior changes when the same model is
-placed inside a \emph{structured harness}. We use this term to mean the
-instruction-layer scaffolding around a model: triage rules, grounding
-expectations, preference handling, comparative-theology norms, and escalation
-boundaries. This framing matters because real-world deployments are rarely raw
+Most large language model benchmarks evaluate raw model behavior in isolation.
+\fmgb{} instead compares the same model across four response-generation
+conditions: raw model behavior, guided-default behavior, preference-configured
+behavior, and perspective-comparison behavior. We use structured harness to refer
+to the instruction-layer scaffolding in the guided conditions: triage rules,
+grounding expectations, preference handling, comparative-theology norms, and
+escalation boundaries. This matters because real-world deployments are rarely raw
 models. They include system prompts, preference settings, safety scaffolding, and
 behavioral constraints that may improve or worsen domain-specific behavior.
 \fmgb{} makes these effects testable across 14 diverse advanced models, producing
@@ -141,7 +141,7 @@ theological and pastoral response quality.
   \item A \emph{tradition-aware evaluation protocol} that distinguishes creedal,
         tradition-specific, comparative, and pastoral claims, and penalizes
         tradition-flattening as a distinct failure mode.
-  \item A set of \emph{generalizable structured-harness conditions} (raw model,
+  \item A set of \emph{generalizable harness variants} (raw model,
         guided default, preference-configured, perspective-compare) for testing
         how harness design changes model behavior in this domain.
   \item Supporting evaluation infrastructure: a 21-tag failure taxonomy, a
@@ -420,6 +420,9 @@ A condition is the instruction setting under which a model answers the same
 scenario. These conditions are generalizable experimental variables, not
 implementation-specific claims. Publication materials use neutral labels for all
 conditions.
+Each condition produces a concrete answer that is scored directly; reported
+deltas such as \tagcode{guided_default} minus \tagcode{raw_model} are computed
+afterward from those observed scores.
 
 \begin{table}[htbp]
 \centering
