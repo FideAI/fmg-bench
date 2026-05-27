@@ -125,7 +125,12 @@ expectations, preference handling, comparative-theology norms, and escalation
 boundaries. This framing matters because real-world deployments are rarely raw
 models. They include system prompts, preference settings, safety scaffolding, and
 behavioral constraints that may improve or worsen domain-specific behavior.
-\fmgb{} makes these effects testable across 14 diverse advanced models, producing
+\fmgb{} still scores generated responses directly: each model answers the same
+scenario under each condition, and judges score the resulting answer. The harness
+effect is then estimated from paired condition differences for the same model and
+scenario. Thus, \fmgb{} is not a delta-only benchmark; it combines response-level
+scoring with within-model, within-scenario delta analysis. \fmgb{} makes these
+effects testable across 14 diverse advanced models, producing
 large-scale evidence that a structured harness can consistently improve
 theological and pastoral response quality.
 
@@ -420,6 +425,11 @@ A condition is the instruction setting under which a model answers the same
 scenario. These conditions are generalizable experimental variables, not
 implementation-specific claims. Publication materials use neutral labels for all
 conditions.
+This design separates the scoring unit from the experimental contrast: the
+scoring unit is a generated response under a named condition, while the harness
+effect is the paired difference between condition scores for the same model on the
+same scenario. We therefore report both absolute condition scores and
+within-model deltas.
 
 \begin{table}[htbp]
 \centering
@@ -461,8 +471,11 @@ meaningful faithful disagreement where it exists.
 
 \subsection{Scoring Dimensions}
 
-\fmgb{} scores each scenario-mode response across five dimensions on a $0$--$100$
+\fmgb{} scores each scenario-condition response across five dimensions on a $0$--$100$
 scale, then combines scores using scenario-specific weights (Table~\ref{tab:dims}).
+These scores evaluate answer quality directly. Deltas such as guided default
+minus raw model are computed only after scoring, by pairing responses from the
+same target model and scenario across conditions.
 
 \begin{table}[htbp]
 \centering
@@ -616,6 +629,10 @@ Table~\ref{tab:overall} and Figure~\ref{fig:conditions} report mean scores by
 condition across all 14 final repaired result files. The central production-run finding
 is that placing models inside a structured harness improves over raw model behavior for
 \emph{every} target model (Figure~\ref{fig:scatter}).
+The condition means answer the response-quality question: how good are answers
+under this instruction setting? The within-model deltas answer the harness-effect
+question: how much did the structured harness change the same model's behavior on
+the same scenarios relative to raw model behavior?
 
 \begin{figure}[htbp]
 \centering
@@ -1264,7 +1281,10 @@ parameterized experimental variables, not a representative sample of all possibl
 structured-harness designs. Other harness implementations may produce different
 results. The contribution is demonstrating that the class of structured
 harnesses tested here produces consistent effects, not that any particular implementation
-is optimal.
+is optimal. Because \fmgb{} scores responses first and computes condition
+differences second, the reported harness effects should be interpreted as paired
+response-quality contrasts rather than as independent measurements of an
+unobserved internal model state.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Reproducibility and Availability}

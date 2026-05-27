@@ -98,6 +98,10 @@ instruction-layer scaffolding around a model: triage rules, grounding
 expectations, preference handling, comparative-theology norms, and escalation
 boundaries. We compare four conditions: raw model behavior, guided default
 behavior, preference-configured behavior, and perspective-comparison behavior.
+The benchmark still scores generated answers directly. What makes the design
+harness-oriented is the paired comparison: the same model answers the same
+scenario under different instruction conditions, and the reported harness effects
+are deltas between those response scores.
 Across 14 advanced models, the structured-harness conditions improve every model,
 with the largest gains in pastoral application.
 At the same time, comparison framing is not universally helpful: it improves some
@@ -209,6 +213,9 @@ boundaries. \texttt{preference\_configured} adds an explicit user or tradition
 preference as context. \texttt{perspective\_compare} adds a request to surface
 meaningful faithful disagreement where it exists. These conditions are
 experimental variables, not product-specific claims.
+The scoring unit is the scenario-condition response; the harness effect is the
+paired difference between scores for the same model and scenario across
+conditions.
 
 \begin{table}[htbp]
 \centering
@@ -235,6 +242,8 @@ combine these dimensions into a raw score. A primary-doctrine scenario weights
 theological quality and grounding heavily; a comparative secondary scenario
 increases comparative honesty and preference fidelity; a pastoral safety scenario
 substantially weights escalation appropriateness.
+Absolute scores evaluate response quality under a condition. Condition deltas are
+computed afterward by pairing responses from the same model and scenario.
 
 \fmgb{} also computes a triage-adjusted score. Severe categorical failures cap the
 final score even when the answer otherwise sounds polished. A response that denies
@@ -276,6 +285,8 @@ largest is $+5.79$. A Wilcoxon signed-rank test on the 14 within-model
 guided-minus-raw improvements gives $W=105$, $p<0.001$; paired Cohen's
 $d=3.69$. The bootstrap 95\% confidence interval for the mean improvement is
 $[+3.15,+4.91]$ points.
+Absolute condition means describe answer quality; within-model deltas estimate
+the effect of placing the same model inside the structured harness.
 
 \begin{table}[htbp]
 \centering
@@ -425,6 +436,8 @@ Because automated judges are preliminary in this domain, the relative condition
 effects should be trusted more than the absolute score levels. Human calibration
 remains necessary before treating benchmark scores as final judgments about model
 quality.
+Those condition effects are paired response-quality contrasts, not separate
+measurements of hidden model internals.
 
 \section{Responsible Use and Limitations}
 \label{sec:limitations}
@@ -595,6 +608,8 @@ grounding; comparative secondary doctrine increases comparative honesty and
 preference fidelity; pastoral safety scenarios substantially weight escalation
 appropriateness. Escalation appropriateness is inactive (weight $=0$, score null)
 when no escalation check is required.
+Harness-effect deltas are computed only after response scoring, by comparing
+condition scores for the same model on the same scenario.
 
 \begin{table}[htbp]
 \centering
