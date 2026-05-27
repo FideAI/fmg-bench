@@ -9,6 +9,7 @@ and obvious credential patterns.
 from __future__ import annotations
 
 import re
+import subprocess
 from pathlib import Path
 
 
@@ -50,8 +51,20 @@ def iter_files() -> list[Path]:
             continue
         if any(part in SKIP_DIRS for part in path.parts):
             continue
+        if is_gitignored(path):
+            continue
         files.append(path)
     return files
+
+
+def is_gitignored(path: Path) -> bool:
+    rel = path.relative_to(ROOT)
+    result = subprocess.run(
+        ["git", "check-ignore", "--quiet", rel.as_posix()],
+        cwd=ROOT,
+        check=False,
+    )
+    return result.returncode == 0
 
 
 def is_text(path: Path) -> bool:
