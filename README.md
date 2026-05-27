@@ -24,15 +24,16 @@ Links:
 ## Headline Results
 
 FMG-Bench v1 evaluates 14 advanced models across four instruction conditions for
-8,792 scored model-condition items. The main empirical finding is that bounded
-guided instructions improve every tested model over raw model behavior.
+8,792 scored model-condition items. The main empirical finding is that placing
+models inside a structured harness improves every tested model over raw model
+behavior.
 
 | Finding | Result | Interpretation |
 |---|---:|---|
 | Guided default vs. raw model | **+3.96 points** | Every one of the 14 models improved. |
 | Pastoral application gain | **+6.62 points** | Largest triage-level gain; safety and referral boundaries benefit most. |
-| Escalation appropriateness gain | **+10.8 points** | Guided instructions help models recognize when human support is needed. |
-| Robustness stability | **92.88 -> 98.02** | Guided behavior is more stable under rewording, pressure, and perturbation. |
+| Escalation appropriateness gain | **+10.8 points** | The structured harness helps models recognize when human support is needed. |
+| Robustness stability | **92.88 -> 98.02** | Structured-harness behavior is more stable under rewording, pressure, and perturbation. |
 | Perspective comparison | Mixed | Helps secondary doctrine, but can hurt primary doctrine and urgent pastoral cases. |
 
 The benchmark is a measurement tool, not an endorsement of AI systems as

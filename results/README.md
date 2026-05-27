@@ -38,6 +38,6 @@ reproduction caveats.
 | Escalation appropriateness gain | +10.8 points |
 | Robustness stability | 92.88 -> 98.02 |
 
-Interpretation: bounded guided instructions improved all 14 tested models over
-raw model behavior. Perspective comparison helped some secondary-doctrine cases
-but was not a universal improvement.
+Interpretation: placing models inside a structured harness improved all 14 tested
+models over raw model behavior. Perspective comparison helped some
+secondary-doctrine cases but was not a universal improvement.

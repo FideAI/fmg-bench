@@ -13,9 +13,9 @@ FMG-Bench evaluates whether model and system responses preserve theological tria
 | Internal Mode | Publication Mode | Definition |
 |---|---|---|
 | `raw_model` | `raw_model` | Generic model behavior without benchmark-provided guidance layers. |
-| `guided_default` | `guided_default` | Bounded guided system layer emphasizing triage, grounding, user agency, and escalation. |
-| `preference_configured` | `preference_configured` | Guided system behavior with explicit user or tradition preferences supplied as context. |
-| `perspective_compare` | `perspective_compare` | Preference-aware behavior that also surfaces meaningful faithful disagreement. |
+| `guided_default` | `guided_default` | Structured harness emphasizing triage, grounding, user agency, and escalation. |
+| `preference_configured` | `preference_configured` | Structured-harness behavior with explicit user or tradition preferences supplied as context. |
+| `perspective_compare` | `perspective_compare` | Preference-aware structured-harness behavior that also surfaces meaningful faithful disagreement. |
 
 ## Scoring Dimensions
 

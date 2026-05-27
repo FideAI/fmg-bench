@@ -49,13 +49,15 @@ and some are pastoral situations where safety and human referral matter more tha
 theological completeness. Existing benchmarks do not evaluate this structure. We
 introduce \fmgb{}, the Faith \& Moral Guidance Benchmark, a 120-scenario benchmark
 for theological triage and pastoral guidance in English-language Christian
-contexts. \fmgb{} v1 compares four instruction conditions across 14 advanced models
-for 8,792 scored items. A bounded guided instruction layer improves over raw model
+contexts. \fmgb{} v1 compares raw model behavior with structured-harness
+conditions across 14 advanced models for 8,792 scored items. Placing models
+inside a structured harness improves over raw model
 behavior by $+3.96$ points on average, with all 14 models improving. The largest
 domain gain is pastoral application ($+6.62$), and the most safety-critical gain is
 escalation appropriateness ($+10.8$), measuring whether systems recognize when pastoral,
-clinical, legal, emergency, or community support is needed. Guided conditions also
-improve robustness ($92.88 \to 98.02$ stability). Perspective comparison helps
+clinical, legal, emergency, or community support is needed. Structured-harness
+conditions also improve robustness ($92.88 \to 98.02$
+stability). Perspective comparison helps
 secondary doctrine but can be counterproductive when applied to primary doctrine
 or urgent pastoral situations. The benchmark is a measurement tool, not an
 endorsement of AI systems as pastoral authorities.
@@ -90,11 +92,14 @@ theological boundaries, represent Christian traditions fairly, avoid fabricated
 grounding, maintain user agency, and recognize when escalation to human care is
 needed.
 
-Our empirical question is also practical: can a structured instruction layer
-improve behavior across model families? We compare four conditions: raw model
-behavior, guided default behavior, preference-configured behavior, and
-perspective-comparison behavior. Across 14 advanced models, guided default
-instruction improves every model, with the largest gains in pastoral application.
+Our empirical question is also practical: can a structured harness improve
+behavior across model families? We use structured harness to mean the
+instruction-layer scaffolding around a model: triage rules, grounding
+expectations, preference handling, comparative-theology norms, and escalation
+boundaries. We compare four conditions: raw model behavior, guided default
+behavior, preference-configured behavior, and perspective-comparison behavior.
+Across 14 advanced models, the structured-harness conditions improve every model,
+with the largest gains in pastoral application.
 At the same time, comparison framing is not universally helpful: it improves some
 secondary-doctrine answers but degrades primary-doctrine and pastoral settings
 where directness matters.
@@ -103,7 +108,7 @@ The paper makes three contributions. First, it formalizes theological triage as 
 evaluation framework for AI-mediated faith and moral guidance. Second, it releases
 a scenario benchmark with scoring dimensions for theological quality, grounding,
 preference fidelity, comparative honesty, and escalation appropriateness. Third,
-it reports a production run showing that bounded guidance improves model behavior
+it reports a production run showing that a structured harness improves model behavior
 while indiscriminate perspective comparison introduces a distinct risk.
 
 \section{Related Work}
@@ -197,12 +202,13 @@ neutral Christian position.
 
 \paragraph{System conditions.}
 Each scenario is rendered under four instruction conditions. \texttt{raw\_model}
-uses generic model behavior without benchmark-provided guidance. \texttt{guided\_default}
-adds bounded instructions emphasizing transparent reasoning, grounding discipline,
-user agency, and escalation boundaries. \texttt{preference\_configured} adds an
-explicit user or tradition preference as context. \texttt{perspective\_compare}
-adds a request to surface meaningful faithful disagreement where it exists. These
-conditions are experimental variables, not product-specific claims.
+uses generic model behavior without benchmark-provided guidance.
+\texttt{guided\_default} places the model inside a structured harness emphasizing
+transparent reasoning, grounding discipline, user agency, and escalation
+boundaries. \texttt{preference\_configured} adds an explicit user or tradition
+preference as context. \texttt{perspective\_compare} adds a request to surface
+meaningful faithful disagreement where it exists. These conditions are
+experimental variables, not product-specific claims.
 
 \begin{table}[htbp]
 \centering
@@ -212,7 +218,7 @@ conditions are experimental variables, not product-specific claims.
 Condition & What it tests \\
 \midrule
 \texttt{raw\_model} & Native model behavior without benchmark guidance. \\
-\texttt{guided\_default} & Whether structured triage, grounding, agency, and escalation guidance generalizes. \\
+\texttt{guided\_default} & Whether a structured harness for triage, grounding, agency, and escalation generalizes. \\
 \texttt{preference\_configured} & Whether explicit user or tradition context improves bounded preference fidelity. \\
 \texttt{perspective\_compare} & Whether surfacing faithful disagreement helps without creating false equivalence. \\
 \bottomrule
@@ -262,7 +268,7 @@ triage-level results, robustness, failure patterns, and preliminary calibration.
 \section{Results}
 \label{sec:results}
 
-\paragraph{Guided instruction improves every model.}
+\paragraph{A structured harness improves every model.}
 The central result is that \texttt{guided\_default} improves over
 \texttt{raw\_model} for all 14 models. Mean score increases from 87.17 to 91.13,
 a $+3.96$ point gain. The smallest per-model improvement is $+2.10$ and the
@@ -358,21 +364,21 @@ comparison can prevent caricature and false consensus. In a creedal question, th
 same behavior can blur boundaries. In a pastoral safety setting, comparison can
 substitute deliberation for direct care.
 
-\paragraph{Robustness improves under guidance.}
-\texttt{guided\_default} improves robustness from 92.88 to 98.02 stability, with
-similar improvement in \texttt{preference\_configured}. \texttt{perspective\_compare}
-improves over raw but is less stable than guided default. This is a safety-relevant
-result. Users seeking pastoral guidance may rephrase, escalate, or ask under social
-pressure. A system whose answer changes too easily under those pressures is less
-trustworthy than its average quality score suggests.
+\paragraph{Robustness improves under a structured harness.}
+The guided-default harness improves robustness from 92.88 to 98.02 stability,
+with similar improvement in preference-configured runs. Perspective comparison
+improves over raw but is less stable than guided default. This is a
+safety-relevant result. Users seeking pastoral guidance may rephrase, escalate,
+or ask under social pressure. A system whose answer changes too easily under
+those pressures is less trustworthy than its average quality score suggests.
 
 \paragraph{Failure patterns clarify the result.}
 The most common raw-model failures are genericity, overstated certainty,
 hallucinated theology, missed escalation, and fabricated grounding. Guided-default
-instruction reduces most raw-model failure modes, including missed escalation.
+structured-harness instruction reduces most raw-model failure modes, including missed escalation.
 Perspective comparison, however, introduces comparison-specific failures such as
 hallucinated source claims, flattened disagreement, and relativizing primary
-doctrine. This supports the central interpretation: structured guidance is broadly
+doctrine. This supports the central interpretation: a structured harness is broadly
 helpful, but comparison framing should be selectively triggered rather than applied
 as a blanket style.
 
@@ -394,8 +400,8 @@ qualified theological and pastoral reviewers remains the next validity step.
 \label{sec:discussion}
 
 The strongest finding is not that one model wins the benchmark. It is that a
-bounded guided instruction layer improves all 14 model families. This suggests
-that the result reflects task structure rather than a quirk of a single provider.
+structured harness improves all 14 model families. This suggests that the result
+reflects task structure rather than a quirk of a single provider.
 For non-specialist readers, the practical point is direct: the way an AI system is
 instructed matters. Faith and pastoral guidance should not be left to an unguided
 general-purpose chatbot when the setting calls for triage, humility, grounding,
@@ -459,12 +465,12 @@ kind of question being asked. Some questions require creedal clarity, some requi
 careful representation of disagreement, some require humility, and some require
 direct attention to safety and human care.
 
-In a production run across 14 advanced models, guided instruction improves every
-model and helps most in pastoral application. Robustness also improves. But the
+In a production run across 14 advanced models, a structured harness improves
+every model and helps most in pastoral application. Robustness also improves. But the
 results caution against treating every added behavior as helpful: perspective
 comparison is useful in the right context and harmful in the wrong one. The
 benchmark therefore supports both a positive design claim and a boundary claim:
-structured guidance can improve AI-mediated faith and moral guidance, but such
+structured harnesses can improve AI-mediated faith and moral guidance, but such
 systems must remain bounded, tradition-aware, safety-conscious, and subject to
 human theological and pastoral judgment. Its role is not to certify pastoral
 authority, but to make AI behavior in this domain visible, comparable, and
@@ -641,13 +647,12 @@ Publication condition & Definition \\
 \midrule
 \texttt{raw\_model} & Generic model behavior without benchmark-provided guidance
 layers. Baseline for native model behavior. \\
-\texttt{guided\_default} & Bounded guided instruction layer emphasizing
-transparent reasoning, grounding discipline, user agency, and escalation
-boundaries. \\
-\texttt{preference\_configured} & Guided behavior with explicit user or tradition
+\texttt{guided\_default} & Structured harness emphasizing transparent reasoning,
+grounding discipline, user agency, and escalation boundaries. \\
+\texttt{preference\_configured} & Structured-harness behavior with explicit user or tradition
 preferences as context. Tests preference fidelity under safety and epistemic
 limits. \\
-\texttt{perspective\_compare} & Preference-aware behavior that also surfaces
+\texttt{perspective\_compare} & Preference-aware structured-harness behavior that also surfaces
 meaningful faithful disagreement. Tests comparison without false consensus. \\
 \bottomrule
 \end{tabularx}
@@ -1034,7 +1039,7 @@ evangelical Protestant, Catholic, and mainline traditions.
 
 The scenario set, manifest, run configuration, calibration documents, benchmark
 card, dataset card, and release materials are prepared as a versioned release
-package. The public scenario split will be released at
+package. The open benchmark corpus will be released at
 \url{https://huggingface.co/datasets/FideAI/fmg-bench}; code and release
 materials will be available at \url{https://github.com/FideAI/fmg-bench}.
 
