@@ -1,7 +1,7 @@
 # Security and Sensitive Content
 
 Please do not open public issues containing secrets, private reviewer materials,
-held-out benchmark scenarios, or real pastoral-care disclosures.
+unreviewed sensitive artifacts, or real pastoral-care disclosures.
 
 For sensitive reports, contact Fide AI privately through the contact channel
 listed on https://fideai.org.
@@ -14,7 +14,6 @@ The following should not be committed:
 - Raw response dumps that have not been reviewed for release.
 - Raw judge transcripts.
 - Private reviewer packets or reviewer-identifying metadata.
-- Held-out scenarios.
 - Real user pastoral-care logs or private spiritual counseling content.
 
 ## Responsible Disclosure

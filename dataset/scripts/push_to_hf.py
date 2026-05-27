@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Push the prepared FMG-Bench v1 public split to Hugging Face.
+Push the prepared FMG-Bench v1 open dataset benchmark to Hugging Face.
 
 Prerequisites:
   1. huggingface-cli login   (or set HF_TOKEN env var)
   2. Create the FideAI org on huggingface.co
-  3. Run prepare_hf_dataset.py first to generate data/public.jsonl
+  3. Confirm data/fmg_bench_v1.jsonl and data/manifest.json are present
 
 Usage:
   python scripts/push_to_hf.py
@@ -33,10 +33,11 @@ def main() -> None:
 
     dataset_root = Path(__file__).parent.parent
     data_dir = dataset_root / "data"
+    examples_dir = dataset_root / "examples"
     readme_path = dataset_root / "README.md"
 
-    if not (data_dir / "public.jsonl").exists():
-        print("ERROR: data/public.jsonl not found. Run prepare_hf_dataset.py first.")
+    if not (data_dir / "fmg_bench_v1.jsonl").exists():
+        print("ERROR: data/fmg_bench_v1.jsonl not found.")
         raise SystemExit(1)
 
     api = HfApi()
@@ -67,10 +68,21 @@ def main() -> None:
         path_in_repo="data",
         repo_id=args.repo,
         repo_type=REPO_TYPE,
-        commit_message="Upload FMG-Bench v1 public split",
+        commit_message="Upload FMG-Bench v1 open benchmark dataset",
         ignore_patterns=["*.pyc", "__pycache__"],
     )
     print(f"Uploaded data/ to https://huggingface.co/datasets/{args.repo}")
+
+    if examples_dir.exists():
+        upload_folder(
+            folder_path=str(examples_dir),
+            path_in_repo="examples",
+            repo_id=args.repo,
+            repo_type=REPO_TYPE,
+            commit_message="Upload FMG-Bench v1 example sample",
+            ignore_patterns=["*.pyc", "__pycache__"],
+        )
+        print(f"Uploaded examples/ to https://huggingface.co/datasets/{args.repo}")
 
 
 if __name__ == "__main__":

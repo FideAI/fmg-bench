@@ -32,10 +32,13 @@ Failure tags are reported separately from numeric scores and are used for:
 Final family scores are aggregated across judge panel outputs using robust central tendency (median default) with outlier review thresholds.
 
 ## 6) Uncertainty and Bands
-Leaderboard publication should include uncertainty indicators or performance bands when rank deltas are not statistically/practically meaningful.
+Result publication should include uncertainty indicators or performance bands when rank deltas are not statistically/practically meaningful.
 
 ## 7) Minimum Coverage Rules
-A submission must satisfy required scenario completion thresholds before receiving an official composite score.
+A reported run should disclose scenario completion coverage. Partial runs should
+not be compared directly with full-corpus runs unless the subset is clearly
+identified.
 
 ## 8) Version Control
-Any scoring rule changes increment scoring spec version and must be documented prior to active submission windows.
+Any scoring rule changes increment the scoring spec version and should be
+documented before comparing new results with previously published results.

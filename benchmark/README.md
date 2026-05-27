@@ -21,8 +21,8 @@ python benchmark/run_fmg_bench.py \
   --plan-run
 ```
 
-The default public release config reads from `dataset/data/`, so a fresh clone
-can plan a run without access to the held-out corpus.
+The default release config reads from the open benchmark dataset in
+`dataset/data/`, so a fresh clone can plan a full-corpus run.
 
 ## Run Tests
 

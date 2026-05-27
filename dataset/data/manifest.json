@@ -1,8 +1,10 @@
 {
   "version": "1.0.0",
   "total_scenarios": 120,
-  "public_count": 24,
-  "held_out_count": 72,
+  "open_benchmark_count": 120,
+  "example_sample_count": 24,
+  "perturbation_variant_count": 37,
+  "rendered_instance_count": 157,
   "triage_coverage": {
     "pastoral_application": 35,
     "primary": 25,

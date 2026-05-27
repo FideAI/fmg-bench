@@ -288,7 +288,8 @@ scenario family; user ask; triage level; doctrinal topics; tradition scope
 expected anchors; false-premise traps; escalation flag; scenario-specific score
 weights; expected behaviors; disallowed failure modes; optional perturbation
 variants; and evaluator notes. The manifest validates corpus composition and
-defines public, held-out, and calibration splits.
+identifies the open benchmark corpus, documentation sample, and calibration
+metadata.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Theological Triage}
@@ -940,7 +941,7 @@ This is a preliminary validity check, not a substitute for real human reviewers.
 The synthetic panel scored all 14 latest production result files, including
 \tagcode{openai/gpt-5.4}. This
 broadens calibration beyond a single target model, but also means the GPT-5.4 target
-result file is not held out from the GPT-5.4 synthetic-reviewer model. All five personas
+result file was visible to the GPT-5.4 synthetic-reviewer model. All five personas
 scored 30 calibration scenarios across all four system conditions for each target
 result file (6~primary, 9~secondary, 6~tertiary, 9~pastoral per model), producing
 8,400 synthetic reviewer-item observations and 1,680 scenario-condition comparisons.
@@ -1199,7 +1200,8 @@ measurable rates even with advanced models.
 Possible misuse includes: using benchmark scores to market a system as spiritually
 authoritative or pastorally endorsed; treating a model score as authorization for
 pastoral deployment; ranking denominations or traditions rather than model behavior;
-using scenarios as training data without preserving held-out evaluation integrity;
+using benchmark scenarios as training data and then reporting scores without
+disclosing contamination risk;
 using automated judge outputs without human calibration as if they were final verdicts.
 
 \paragraph{A note on scope.}

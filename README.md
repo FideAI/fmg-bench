@@ -23,7 +23,7 @@ Links:
 
 ## Headline Results
 
-FMG-Bench v1 evaluated 14 advanced models across four instruction conditions for
+FMG-Bench v1 evaluates 14 advanced models across four instruction conditions for
 8,792 scored model-condition items. The main empirical finding is that bounded
 guided instructions improve every tested model over raw model behavior.
 
@@ -43,24 +43,23 @@ pastoral authorities.
 | Path | Purpose |
 |---|---|
 | [`paper/`](paper/) | LaTeX source, PDFs, bibliography, and paper figures. |
-| [`dataset/`](dataset/) | Public 24-scenario dataset split and Hugging Face dataset card. |
+| [`dataset/`](dataset/) | Open 120-scenario benchmark dataset and Hugging Face dataset card. |
 | [`benchmark/`](benchmark/) | Standalone runner, scoring code, config, and tests. |
-| [`docs/`](docs/) | Benchmark card, dataset card, scoring spec, held-out policy, responsible-use notes. |
+| [`docs/`](docs/) | Benchmark card, dataset card, scoring spec, open-benchmark policy, responsible-use notes. |
 | [`calibration/`](calibration/) | Public synthetic calibration summaries and aggregate CSVs. |
 | [`results/`](results/) | Machine-readable public result summaries. |
 | [`tools/`](tools/) | Release-safety checks. |
 
 Included:
 
-- 24 public FMG-Bench v1 scenarios in JSONL format.
-- Public manifest metadata for the 120-scenario benchmark and split counts.
+- Full open FMG-Bench v1 dataset: 120 base scenarios and 37 perturbation variants.
+- Public manifest metadata for the 120-scenario benchmark and coverage counts.
 - Benchmark runner code, model configuration, scoring utilities, and smoke tests.
 - Paper artifacts for the full arXiv-style version and the short conference-style version.
-- Benchmark card, dataset card, scoring specification, held-out policy, and responsible-use documentation.
+- Benchmark card, dataset card, scoring specification, open-benchmark policy, and responsible-use documentation.
 
 Not included:
 
-- Held-out scenarios used for benchmark integrity.
 - Raw model responses or raw judge transcripts.
 - Private reviewer packets or reviewer-identifying materials.
 - API keys, provider credentials, local run logs, or internal planning documents.
@@ -89,12 +88,12 @@ python benchmark/run_fmg_bench.py \
   --plan-run
 ```
 
-Expected public-split plan shape:
+Expected benchmark plan shape:
 
 ```json
 {
-  "base_scenario_count": 24,
-  "scenario_count": 32,
+  "base_scenario_count": 120,
+  "scenario_count": 157,
   "mode_count": 4,
   "model_count": 14
 }
@@ -108,11 +107,12 @@ python tools/release_scan.py
 
 ## Inspect The Dataset
 
-The local public split is:
+The local benchmark dataset is:
 
 ```text
-dataset/data/public.jsonl
+dataset/data/fmg_bench_v1.jsonl
 dataset/data/manifest.json
+dataset/examples/public_sample.jsonl
 ```
 
 Preview scenarios:
@@ -122,7 +122,7 @@ python - <<'PY'
 import json
 from pathlib import Path
 
-for line in Path("dataset/data/public.jsonl").read_text().splitlines()[:3]:
+for line in Path("dataset/data/fmg_bench_v1.jsonl").read_text().splitlines()[:3]:
     item = json.loads(line)
     print(f"{item['id']} | {item['triage_level']} | {item['title']}")
 PY
@@ -174,8 +174,10 @@ python benchmark/run_fmg_bench.py \
   --max-scenarios 2
 ```
 
-The public config points at the public split only. Full production runs used the
-held-out corpus, which is intentionally not included here.
+The public config points at the open benchmark dataset. Fide AI may keep
+additional internal audit items for future contamination checks, but this
+repository does not operate a hidden-test leaderboard or hosted evaluation
+service.
 
 ## Benchmark Design
 

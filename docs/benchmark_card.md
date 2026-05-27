@@ -28,7 +28,8 @@ FMG-Bench evaluates whether model and system responses preserve theological tria
 ## Current Release Status
 
 This package publishes benchmark design, dataset construction, scoring protocol,
-calibration protocol, run infrastructure, and production-run empirical analysis.
+calibration protocol, run infrastructure, production-run empirical analysis, and
+the open v1 scenario corpus.
 The canonical production run completed on April 25, 2026 with 14 target models.
 All final repaired artifacts are complete at 628/628 rendered items per model.
 Human calibration remains necessary before strong claims about judge validity or

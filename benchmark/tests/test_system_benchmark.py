@@ -18,23 +18,29 @@ def public_data_dir() -> Path:
     return REPO_ROOT / "dataset" / "data"
 
 
-def test_public_jsonl_loads_and_expands_perturbations():
+def test_open_benchmark_jsonl_loads_and_expands_perturbations():
     scenarios = load_scenarios(public_data_dir())
     base_ids = {scenario.id for scenario in scenarios if scenario.base_scenario_id is None}
     variant_ids = {scenario.id for scenario in scenarios if scenario.base_scenario_id is not None}
 
-    assert len(base_ids) == 24
+    assert len(base_ids) == 120
     assert len(scenarios) > len(base_ids)
     assert "ch_001_women_ordained" in base_ids
     assert any(item.startswith("ch_001_women_ordained__") for item in variant_ids)
 
 
-def test_public_manifest_matches_public_split_count():
+def test_manifest_matches_open_benchmark_count():
     manifest = json.loads((public_data_dir() / "manifest.json").read_text())
-    line_count = sum(1 for line in (public_data_dir() / "public.jsonl").read_text().splitlines() if line)
+    line_count = sum(
+        1
+        for line in (public_data_dir() / "fmg_bench_v1.jsonl").read_text().splitlines()
+        if line
+    )
 
-    assert manifest["total_scenarios"] == 120
-    assert manifest["public_count"] == line_count == 24
+    assert manifest["total_scenarios"] == line_count == 120
+    assert manifest["open_benchmark_count"] == 120
+    assert manifest["example_sample_count"] == 24
+    assert manifest["rendered_instance_count"] == 157
     assert manifest["publication_terminology_aliases"] == {
         "raw_model": "raw_model",
         "guided_default": "guided_default",
@@ -78,8 +84,8 @@ def test_plan_run_uses_public_split_without_api_calls():
 
     plan = runner.plan_run(["model-a", "model-b"])
 
-    assert plan["base_scenario_count"] == 24
-    assert plan["scenario_count"] > 24
+    assert plan["base_scenario_count"] == 120
+    assert plan["scenario_count"] == 157
     assert plan["mode_count"] == 4
     assert plan["model_count"] == 2
     assert plan["judge_model_count"] == 3
@@ -101,7 +107,8 @@ def test_cli_plan_run_from_repo_root():
     )
 
     payload = json.loads(result.stdout)
-    assert payload["base_scenario_count"] == 24
+    assert payload["base_scenario_count"] == 120
+    assert payload["scenario_count"] == 157
     assert payload["model_call_count"] > 0
 
 

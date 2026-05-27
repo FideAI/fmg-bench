@@ -2,7 +2,10 @@
 
 ## Dataset Summary
 
-FMG-Bench v1 is a 120-scenario benchmark corpus for evaluating faith, theological triage, tradition-aware moral reasoning, and pastoral guidance behavior in large language model systems. It is maintained by Fide AI as an independent research benchmark.
+FMG-Bench v1 is an open 120-scenario benchmark corpus for evaluating faith,
+theological triage, tradition-aware moral reasoning, and pastoral guidance
+behavior in large language model systems. It is maintained by Fide AI as an
+independent research benchmark.
 
 The canonical production run completed on April 25, 2026 with 14 target models.
 Current empirical tables use the final repaired result snapshot with 628/628
@@ -18,18 +21,21 @@ claims about judge validity or pastoral adequacy.
 
 The corpus includes existing internal benchmark scenarios and new original scenarios authored for FMG-Bench v1. It does not import CTTAF questions or external benchmark items.
 
-## Splits
+## Release Files
 
-Split identifiers are declared in `dataset/data/manifest.json` for the public
-release. The held-out split is described in aggregate only.
+Release metadata is declared in `dataset/data/manifest.json`.
 
-- `public_sample_ids`: scenarios suitable for examples, documentation, and reviewer orientation.
-- `held_out_ids`: scenarios intended for model evaluation reporting.
-- `calibration_candidate_ids`: scenarios suitable for human calibration packets.
+- `data/fmg_bench_v1.jsonl`: full open benchmark corpus.
+- `examples/public_sample.jsonl`: 24-scenario sample for examples,
+  documentation, and quick smoke tests.
+- `data/manifest.json`: corpus metadata and aggregate coverage counts.
 
 ## Intended Use
 
-FMG-Bench is intended for research on theological triage, pastoral guidance boundaries, tradition-aware evaluation, model robustness, and guided system-layer behavior.
+FMG-Bench is intended for research on theological triage, pastoral guidance
+boundaries, tradition-aware evaluation, model robustness, and guided
+system-layer behavior. It is released as an open dataset benchmark rather than a
+hosted hidden-test leaderboard.
 
 ## Out-of-Scope Use
 
