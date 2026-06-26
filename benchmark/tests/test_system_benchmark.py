@@ -4,14 +4,42 @@ import subprocess
 import sys
 from pathlib import Path
 
+import yaml
+
 RUNNER_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = RUNNER_ROOT.parent
 sys.path.insert(0, str(RUNNER_ROOT))
 
 from system_benchmark.loader import load_scenario_set, load_scenarios
 from system_benchmark.models import BenchmarkMode, EvaluationConfig, TriageLevel
+from system_benchmark.publication import PUBLICATION_MODE_ALIASES
 from system_benchmark.renderers import render_prompt
 from system_benchmark.runner import SystemBenchmarkRunner
+
+
+PUBLIC_CONDITION_NAMES = [
+    "raw_model",
+    "guided_default",
+    "preference_configured",
+    "perspective_compare",
+]
+
+PUBLIC_PLAN_FIELDS = [
+    "scenario_count",
+    "base_scenario_count",
+    "perturbation_scenario_count",
+    "mode_count",
+    "model_count",
+    "models",
+    "judge_panel",
+    "judge_model_count",
+    "rendered_item_count",
+    "model_call_count",
+    "judge_call_count",
+    "approximate_api_call_volume",
+    "output_dir",
+    "checkpoint_paths",
+]
 
 
 def public_data_dir() -> Path:
@@ -42,10 +70,7 @@ def test_manifest_matches_open_benchmark_count():
     assert manifest["example_sample_count"] == 24
     assert manifest["rendered_instance_count"] == 157
     assert manifest["publication_terminology_aliases"] == {
-        "raw_model": "raw_model",
-        "guided_default": "guided_default",
-        "preference_configured": "preference_configured",
-        "perspective_compare": "perspective_compare",
+        name: name for name in PUBLIC_CONDITION_NAMES
     }
 
 
@@ -58,12 +83,20 @@ def test_scenario_set_manifest_validates_open_corpus():
 
 
 def test_benchmark_modes_use_public_condition_names():
-    assert [mode.value for mode in BenchmarkMode] == [
-        "raw_model",
-        "guided_default",
-        "preference_configured",
-        "perspective_compare",
-    ]
+    assert [mode.value for mode in BenchmarkMode] == PUBLIC_CONDITION_NAMES
+
+
+def test_public_condition_names_match_publication_and_config_contracts():
+    manifest = json.loads((public_data_dir() / "manifest.json").read_text())
+    run_config = yaml.safe_load((RUNNER_ROOT / "config" / "fmg_bench_v1.yaml").read_text())
+
+    assert list(PUBLICATION_MODE_ALIASES.values()) == PUBLIC_CONDITION_NAMES
+    assert manifest["publication_terminology_aliases"] == {
+        name: name for name in PUBLIC_CONDITION_NAMES
+    }
+    assert run_config["publication_terminology_aliases"] == {
+        name: name for name in PUBLIC_CONDITION_NAMES
+    }
 
 
 def test_render_prompt_uses_guided_instructions_without_product_name():
@@ -92,11 +125,22 @@ def test_plan_run_uses_public_split_without_api_calls():
 
     plan = runner.plan_run(["model-a", "model-b"])
 
+    assert list(plan.keys()) == PUBLIC_PLAN_FIELDS
     assert plan["base_scenario_count"] == 120
     assert plan["scenario_count"] == 157
+    assert plan["perturbation_scenario_count"] == 37
     assert plan["mode_count"] == 4
     assert plan["model_count"] == 2
+    assert plan["models"] == ["model-a", "model-b"]
+    assert plan["judge_panel"] == ["judge-a", "judge-b", "judge-c"]
     assert plan["judge_model_count"] == 3
+    assert plan["rendered_item_count"] == 157 * 4 * 2
+    assert plan["model_call_count"] == plan["rendered_item_count"]
+    assert plan["judge_call_count"] == plan["rendered_item_count"] * 3
+    assert plan["approximate_api_call_volume"] == (
+        plan["model_call_count"] + plan["judge_call_count"]
+    )
+    assert len(plan["checkpoint_paths"]) == 2
 
 
 def test_cli_plan_run_from_repo_root():
@@ -115,9 +159,20 @@ def test_cli_plan_run_from_repo_root():
     )
 
     payload = json.loads(result.stdout)
+    assert list(payload.keys()) == PUBLIC_PLAN_FIELDS
     assert payload["base_scenario_count"] == 120
     assert payload["scenario_count"] == 157
+    assert payload["perturbation_scenario_count"] == 37
+    assert payload["mode_count"] == len(PUBLIC_CONDITION_NAMES)
+    assert payload["model_count"] == 14
+    assert len(payload["models"]) == 14
+    assert payload["judge_panel"] == [
+        "openai/gpt-5.4-mini",
+        "google/gemini-3.1-flash-lite-preview",
+        "anthropic/claude-sonnet-4.6",
+    ]
     assert payload["model_call_count"] > 0
+    assert payload["rendered_item_count"] == 157 * len(PUBLIC_CONDITION_NAMES) * 14
 
 
 def test_public_result_summaries_match_headline_claims():

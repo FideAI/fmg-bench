@@ -24,6 +24,29 @@ python benchmark/run_fmg_bench.py \
 The default release config reads from the open benchmark dataset in
 `dataset/data/`, so a fresh clone can plan a full-corpus run.
 
+The `--plan-run` command prints a public JSON contract. Field names and the four
+condition names are stable for FMG-Bench v1 reproducibility:
+
+| Field | Meaning |
+|---|---|
+| `scenario_count` | Rendered scenario instances after perturbation expansion. |
+| `base_scenario_count` | Public base scenarios before perturbation expansion. |
+| `perturbation_scenario_count` | Rendered perturbation variants. |
+| `mode_count` | Number of public benchmark conditions. |
+| `model_count` | Number of target models in the planned run. |
+| `models` | Target model identifiers selected by CLI/config. |
+| `judge_panel` | Judge model identifiers selected by CLI/config. |
+| `judge_model_count` | Number of judge models. |
+| `rendered_item_count` | Scenario x condition x model response items. |
+| `model_call_count` | Planned target-model API calls. |
+| `judge_call_count` | Planned judge-model API calls. |
+| `approximate_api_call_volume` | Target-model plus judge-model call count. |
+| `output_dir` | Directory where run artifacts would be written. |
+| `checkpoint_paths` | Per-model checkpoint files for the planned output directory. |
+
+Public condition names are `raw_model`, `guided_default`,
+`preference_configured`, and `perspective_compare`.
+
 ## Run Tests
 
 From the repository root:
