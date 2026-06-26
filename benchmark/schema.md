@@ -109,6 +109,34 @@ The four standard conditions for FMG-Bench v1 runs:
 | `preference_configured` | Structured harness plus explicit user or tradition preference context |
 | `perspective_compare` | Preference-aware structured harness plus explicit perspective comparison where relevant |
 
+These condition names are publication-facing contract values. They are used in
+the public dataset manifest, run config, result summaries, plan output, and
+tests. Downstream tools may map them to local labels, but public FMG-Bench v1
+outputs should preserve these strings exactly.
+
+## Public Plan-Run Contract
+
+`python benchmark/run_fmg_bench.py --run-config benchmark/config/fmg_bench_v1.yaml --plan-run`
+prints a JSON object without calling target models or judges. The v1 public
+fields are:
+
+| Field | Type | Description |
+|---|---|---|
+| `scenario_count` | integer | Rendered scenario instances after perturbation expansion |
+| `base_scenario_count` | integer | Public base scenarios before perturbation expansion |
+| `perturbation_scenario_count` | integer | Rendered perturbation variants |
+| `mode_count` | integer | Number of public benchmark conditions |
+| `model_count` | integer | Number of target models selected for the run |
+| `models` | list[string] | Target model identifiers selected by CLI/config |
+| `judge_panel` | list[string] | Judge model identifiers selected by CLI/config |
+| `judge_model_count` | integer | Number of judge models |
+| `rendered_item_count` | integer | Scenario x condition x model response items |
+| `model_call_count` | integer | Planned target-model calls |
+| `judge_call_count` | integer | Planned judge-model calls |
+| `approximate_api_call_volume` | integer | Target-model plus judge-model calls |
+| `output_dir` | string | Planned artifact output directory |
+| `checkpoint_paths` | list[string] | Per-model checkpoint paths under `output_dir` |
+
 ---
 
 ## Triage-Adjusted Scoring

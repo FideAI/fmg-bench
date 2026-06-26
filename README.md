@@ -46,7 +46,7 @@ pastoral authorities.
 | [`paper/`](paper/) | LaTeX source, PDFs, bibliography, and paper figures. |
 | [`dataset/`](dataset/) | Open 120-scenario benchmark dataset and Hugging Face dataset card. |
 | [`benchmark/`](benchmark/) | Standalone runner, scoring code, config, and tests. |
-| [`docs/`](docs/) | Benchmark card, dataset card, scoring spec, open-benchmark policy, responsible-use notes. |
+| [`docs/`](docs/) | Benchmark card, dataset card, scoring spec, open-benchmark policy, responsible-use notes, and taxonomy reuse notes. |
 | [`calibration/`](calibration/) | Public synthetic calibration summaries and aggregate CSVs. |
 | [`results/`](results/) | Machine-readable public result summaries. |
 | [`tools/`](tools/) | Release-safety checks. |
@@ -58,6 +58,7 @@ Included:
 - Benchmark runner code, model configuration, scoring utilities, and smoke tests.
 - Paper artifacts for the full arXiv-style version and the short conference-style version.
 - Benchmark card, dataset card, scoring specification, open-benchmark policy, and responsible-use documentation.
+- Taxonomy and methodology reuse notes for researchers and compatible benchmark tooling.
 
 Not included:
 
